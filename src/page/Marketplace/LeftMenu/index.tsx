@@ -138,7 +138,7 @@ const Menu = ({ selected }: MenuProps) => {
       <div className="flex items-center justify-between">
         <div className="flex items-center">
           <img alt="filter" src="/assets/images/filter.png" />
-          <div className="text-white text-xl pl-2">Filter ({2})</div>
+          <div className="text-white text-xl font-semibold pl-2">Filter ({2})</div>
         </div>
 
         <div className="text-sm cursor-pointer text-accent-500 font-semibold">

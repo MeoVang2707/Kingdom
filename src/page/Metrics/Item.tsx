@@ -86,7 +86,7 @@ export default function Item({ type, isSold }: ItemProps) {
 
       <div>
         <div className="flex items-center">
-          <div className="text-accent-500 font-bold text-xl leading-6">10</div>
+          <div className="text-accent-500 font-bold text-2xl leading-7">10</div>
 
           <img
             alt="logo"

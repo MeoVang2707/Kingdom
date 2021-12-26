@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-// import styles from "./index.less";
-// import { Link, useIntl } from "umi";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 
@@ -36,7 +34,7 @@ const Navigation = () => {
         return (
           <Link
             key={menu.label}
-            className={`font-bold  ml-8 ${
+            className={`font-bold ml-8 ${
               isActive >= 0 ? "text-accent-500" : ""
             }`}
             to={menu.path}
