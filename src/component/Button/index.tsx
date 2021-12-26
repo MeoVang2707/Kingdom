@@ -27,7 +27,7 @@ const Button = React.forwardRef<
   return (
     <button
       ref={ref}
-      className={`px-4 py-2 font-bold rounded-lg h-10 flex justify-center items-center ${getClassNameVariant(
+      className={`px-4 py-2 font-bold rounded-lg h-10 flex justify-center items-center disabled:bg-primary-300 disabled:text-primary-100 ${getClassNameVariant(
         variant,
       )} ${className}`}
       {...rest}

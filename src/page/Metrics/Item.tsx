@@ -1,3 +1,4 @@
+import { useHistory } from 'react-router';
 import { MainObject, MainObjectEnum } from 'src/constant/Type';
 
 interface ItemProps {
@@ -23,10 +24,15 @@ const items = {
 };
 
 export default function Item({ type, isSold }: ItemProps) {
+  const history = useHistory();
+  const onClickItem = () => {
+    history.push('/character/123');
+  };
   return (
     <div
       className="h-16 flex justify-between items-center border border-primary-100 p-2 rounded-lg mt-4 flex-wrap hover:border-accent-500 cursor-pointer"
       style={{ boxSizing: 'border-box' }}
+      onClick={onClickItem}
     >
       <div className="flex items-center">
         <img

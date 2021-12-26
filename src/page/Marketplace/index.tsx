@@ -17,18 +17,18 @@ const Marketplace = (props: MarketplaceProps) => {
 
   return (
     <div>
-      <MainTab
-        selected={selected}
-        onClick={handleClickItem}
-        className="flex px-4 py-2 border-b border-primary-300"
-      />
+        <MainTab
+          selected={selected}
+          onClick={handleClickItem}
+          className="flex px-4 py-2 border-b border-primary-300 z-50 fixed w-full bg-primary-400"
+        />
 
-      <div className="p-4 flex">
-        <div>
+      <div className="pt-17 p-4 flex">
+        <div style={{ height: 'calc(100vh - 148px)' }} className="fixed">
           <LeftMenu selected={selected} />
         </div>
 
-        <div className="px-4 grow">
+        <div className="px-4 ml-64">
           <div>
             <Filters />
           </div>

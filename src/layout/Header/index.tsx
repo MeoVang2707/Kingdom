@@ -5,12 +5,18 @@ import Navigation from './Navigation';
 import WalletInfo from './WalletInfo';
 import Icon from 'src/component/Icon';
 import { useHistory } from 'react-router';
+import { useSelector } from 'react-redux';
+import { RootState } from 'src/state/store';
 
 const Header = () => {
-  const isConnected: boolean = true;
+  const userInfor = useSelector((state: RootState) => state.auth.userInfor);
   const history = useHistory();
   const onClickLogo = () => {
     history.push('/');
+  };
+
+  const onClickLogin = () => {
+    history.push('/login');
   };
 
   return (
@@ -26,10 +32,12 @@ const Header = () => {
           <Navigation />
         </div>
 
-        {isConnected ? (
+        {userInfor ? (
           <WalletInfo />
         ) : (
-          <Button variant="outline">Login</Button>
+          <Button variant="outline" onClick={onClickLogin}>
+            Login
+          </Button>
         )}
       </div>
 

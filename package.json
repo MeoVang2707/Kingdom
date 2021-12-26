@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@craco/craco": "^6.4.2",
     "@reduxjs/toolkit": "^1.7.1",
     "@tailwindcss/line-clamp": "^0.3.0",
     "@testing-library/jest-dom": "^5.16.1",
@@ -14,6 +15,7 @@
     "@types/react-dom": "^17.0.11",
     "@umijs/hooks": "^1.9.3",
     "axios": "^0.24.0",
+    "craco-less": "^2.0.0",
     "dayjs": "^1.10.7",
     "history": "^4.10.1",
     "rc-dialog": "^8.6.0",
@@ -31,9 +33,9 @@
     "web-vitals": "^2.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'"
   },

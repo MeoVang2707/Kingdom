@@ -1,24 +1,33 @@
 import { createAction, createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-  selectedTab: 'day',
-  showAddToMenuScreen: false,
-  showFoodSearchScreen: false,
+interface AuthType {
+  userInfor?: {
+    name: string;
+    email?: string;
+    address: string;
+    balance: number;
+  };
+}
+
+const initialState: AuthType = {
+  // userInfor: null,
 };
 
-export const handleChangeField = createAction('food/handleChangeField');
+export const handleChangeField = createAction<Partial<AuthType>>(
+  'auth/handleChangeField',
+);
 
 export const slice = createSlice({
-  name: 'food',
+  name: 'auth',
   initialState,
   reducers: {
     updateTab: (state, action) => {
-      state.selectedTab = action.payload;
+      state.userInfor = action.payload;
     },
   },
   extraReducers: (builder) => {
     builder.addCase(handleChangeField, (state, action) => {
-      return { ...state };
+      return { ...state, ...action.payload };
     });
   },
 });
