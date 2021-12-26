@@ -1,9 +1,22 @@
-import React, { Fragment, lazy, Suspense } from 'react';
-import LoadingScreen from 'src/component/LoadingScreen';
+import React, { Fragment, Suspense } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import AuthGuard from 'src/component/AuthGuard';
+import LoadingScreen from 'src/component/LoadingScreen';
 import MainLayout from 'src/layout/MainLayout';
-import MyAccountLayout from 'src/layout/MyAccountSider';
+import {
+  default as MyAccountLayout,
+  default as MyAccountSider,
+} from 'src/layout/MyAccountSider';
+import Activity from 'src/page/Account/Activity';
+import Claim from 'src/page/Account/Claim';
+import Inventory from 'src/page/Account/Inventory';
+import InventoryDetail from 'src/page/Account/InventoryDetail';
+import MyAccount from 'src/page/Account/MyAccount';
+import Setting from 'src/page/Account/Setting';
+import ItemDetail from 'src/page/ItemDetail';
+import Login from 'src/page/Login';
+import Marketplace from 'src/page/Marketplace';
+import Metrics from 'src/page/Metrics';
 
 interface RouteProps {
   exact?: boolean;
@@ -20,69 +33,69 @@ const routesConfig: RouteProps[] = [
     path: '/',
     guard: AuthGuard,
     layout: MainLayout,
-    component: lazy(() => import('src/page/Metrics')),
+    component: Metrics,
   },
   {
     exact: true,
     path: '/login',
     guard: AuthGuard,
     layout: MainLayout,
-    component: lazy(() => import('src/page/Login')),
+    component: Login,
   },
   {
     exact: true,
     path: '/marketplace',
     guard: AuthGuard,
     layout: MainLayout,
-    component: lazy(() => import('src/page/Marketplace')),
+    component: Marketplace,
   },
   {
     path: '/account',
     // guard: AuthGuard,
     layout: MainLayout,
-    component: lazy(() => import('src/layout/MyAccountSider')),
+    component: MyAccountSider,
     routes: [
       {
         exact: true,
         path: '/account',
         guard: AuthGuard,
         layout: MyAccountLayout,
-        component: lazy(() => import('src/page/Account/MyAccount')),
+        component: MyAccount,
       },
       {
         exact: true,
         path: '/account/activity',
         // guard: AuthGuard,
         layout: MyAccountLayout,
-        component: lazy(() => import('src/page/Account/Activity')),
+        component: Activity,
       },
       {
         exact: true,
         path: '/account/inventory',
         // guard: AuthGuard,
         layout: MyAccountLayout,
-        component: lazy(() => import('src/page/Account/Inventory')),
+        component: Inventory,
       },
       {
         exact: true,
         path: '/account/inventory/:id',
         guard: AuthGuard,
         layout: MyAccountLayout,
-        component: lazy(() => import('src/page/Account/InventoryDetail')),
+        component: InventoryDetail,
       },
       {
         exact: true,
         path: '/account/claim-tokens',
         guard: AuthGuard,
         layout: MyAccountLayout,
-        component: lazy(() => import('src/page/Account/Claim')),
+        component: Claim,
       },
       {
         exact: true,
         path: '/account/settings',
         guard: AuthGuard,
         layout: MyAccountLayout,
-        component: lazy(() => import('src/page/Account/Setting')),
+        component: Setting,
       },
     ],
   },
@@ -91,7 +104,7 @@ const routesConfig: RouteProps[] = [
     path: '/:type/:id',
     guard: AuthGuard,
     layout: MainLayout,
-    component: lazy(() => import('src/page/ItemDetail')),
+    component: ItemDetail,
   },
   {
     path: '*',
