@@ -1,8 +1,8 @@
-import Button from "src/component/Button";
-import Input from "src/component/Input";
-import Modal from "src/component/Modal";
-import ModalInfo from "src/component/Modal/ModalInfo";
-import { useState } from "react";
+import Button from 'src/component/Button';
+import Input from 'src/component/Input';
+import Modal from 'src/component/Modal';
+import ModalInfo from 'src/component/Modal/ModalInfo';
+import { useState } from 'react';
 
 interface ModalEmailProps {
   visible: boolean;
@@ -14,10 +14,10 @@ interface ModalEmailProps {
 export const ModalEmail = ({
   visible,
   onClickConfirm,
-  title = "Add email",
+  title = 'Add email',
   onClose,
 }: ModalEmailProps) => {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
   const onClick = () => {
     onClickConfirm(email);
   };
@@ -61,10 +61,10 @@ export const ModalAddPassword = ({
   visible,
   onClickConfirm,
   onClose,
-  tittle = "Add password",
+  tittle = 'Add password',
 }: ModalPasswordProps) => {
-  const [pass, setPass] = useState("");
-  const [repeatPass, setRepeatPass] = useState("");
+  const [pass, setPass] = useState('');
+  const [repeatPass, setRepeatPass] = useState('');
   const onClick = () => {
     onClickConfirm(pass, repeatPass);
   };
@@ -118,9 +118,9 @@ export const ModalChangePassword = ({
   onClose,
   onForgotPass,
 }: ModalChangePasswordProps) => {
-  const [pass, setPass] = useState("");
-  const [repeatPass, setRepeatPass] = useState("");
-  const [currPass, setcurrPass] = useState("");
+  const [pass, setPass] = useState('');
+  const [repeatPass, setRepeatPass] = useState('');
+  const [currPass, setcurrPass] = useState('');
 
   const onClick = () => {
     onClickConfirm(currPass, pass, repeatPass);
@@ -190,7 +190,7 @@ export const ModalForgot = ({
   onClickConfirm,
   onClose,
 }: ModalForgotPass) => {
-  const [email, setEmail] = useState("123@gmail.com");
+  const [email, setEmail] = useState('123@gmail.com');
   const onClickButton = () => {
     onClickConfirm(email);
   };

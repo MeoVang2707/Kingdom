@@ -1,10 +1,10 @@
-import React from "react";
-import { useToggle } from "@umijs/hooks";
-import "./style.scss";
+import React from 'react';
+import { useToggle } from '@umijs/hooks';
+import './style.scss';
 interface InputProps {
   className?: string;
   disabled?: boolean;
-  type?: "text" | "password" | "number" | "hidden";
+  type?: 'text' | 'password' | 'number' | 'hidden';
   placeholder?: string;
   onClick?: () => void;
   label?: string;
@@ -22,7 +22,7 @@ const Input = React.forwardRef(
     const {
       className,
       disabled = false,
-      type = "text",
+      type = 'text',
       onClick,
       maxLength,
       suffix,
@@ -34,7 +34,7 @@ const Input = React.forwardRef(
 
     const { state: isVisibleEye, toggle: toggleEye } = useToggle(false);
 
-    const isTypePassword: boolean = type === "password";
+    const isTypePassword: boolean = type === 'password';
 
     const handleClick = () => {
       if (disabled) {
@@ -45,7 +45,7 @@ const Input = React.forwardRef(
     };
 
     const handleBlur = () => {
-      if (type === "number") {
+      if (type === 'number') {
         const inputValue: number = inputRef?.current?.value;
 
         const minNumber: number = (rest as any)?.min;
@@ -64,10 +64,10 @@ const Input = React.forwardRef(
     };
 
     const srcEyePassword = (): string => {
-      let src: string = "/assets/images/eye.svg";
+      let src: string = '/assets/images/eye.svg';
 
       if (isVisibleEye) {
-        src = "/assets/images/eye_hide.svg";
+        src = '/assets/images/eye_hide.svg';
       }
 
       return src;
@@ -75,22 +75,22 @@ const Input = React.forwardRef(
 
     const handleToggleEyes = () => toggleEye();
 
-    const implicitType = (): InputProps["type"] => {
+    const implicitType = (): InputProps['type'] => {
       if (isTypePassword) {
         if (isVisibleEye) {
-          return "text";
+          return 'text';
         }
 
-        return "password";
+        return 'password';
       }
 
       return type;
     };
 
-    const blockInvalidCharNumber: string[] = ["e", "E", "+", "-"];
+    const blockInvalidCharNumber: string[] = ['e', 'E', '+', '-'];
 
     const onKeyDown = (event: React.KeyboardEvent) => {
-      if (type === "number") {
+      if (type === 'number') {
         const isBlockChar: boolean = blockInvalidCharNumber.includes(event.key);
 
         if (isBlockChar) {
@@ -132,7 +132,7 @@ const Input = React.forwardRef(
         )}
       </div>
     );
-  }
+  },
 );
 
 export default React.memo(Input);

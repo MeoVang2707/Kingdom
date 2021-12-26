@@ -1,11 +1,11 @@
-import Icon from "src/component/Icon";
-import { useHistory } from "react-router";
-import OneDay from "./OneDay";
+import Icon from 'src/component/Icon';
+import { useHistory } from 'react-router';
+import OneDay from './OneDay';
 
 export default function Activities() {
   const history = useHistory();
   const onClickViewAll = () => {
-    history.push("/account/activity");
+    history.push('/account/activity');
   };
   return (
     <div className="mt-8">

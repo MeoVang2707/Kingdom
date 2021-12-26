@@ -1,14 +1,14 @@
-import React from "react";
-import Button from "src/component/Button";
+import React from 'react';
+import Button from 'src/component/Button';
 
 interface MenuProps {}
 
 export enum MenuAccountSider {
-  ACCOUNT = "account",
-  INVENTORY = "inventory",
-  ACTIVITY = "activity",
-  CLAIM = "claim-tokens",
-  SETTING = "settings",
+  ACCOUNT = 'account',
+  INVENTORY = 'inventory',
+  ACTIVITY = 'activity',
+  CLAIM = 'claim-tokens',
+  SETTING = 'settings',
 }
 
 const Menu = (props: MenuProps) => {

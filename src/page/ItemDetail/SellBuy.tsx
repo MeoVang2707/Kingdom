@@ -1,8 +1,8 @@
-import Button from "src/component/Button";
-import Input from "src/component/Input";
-import Modal from "src/component/Modal";
-import ModalInfo from "src/component/Modal/ModalInfo";
-import { useState } from "react";
+import Button from 'src/component/Button';
+import Input from 'src/component/Input';
+import Modal from 'src/component/Modal';
+import ModalInfo from 'src/component/Modal/ModalInfo';
+import { useState } from 'react';
 
 interface SellBuyProps {
   isSell: boolean;

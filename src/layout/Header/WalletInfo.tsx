@@ -1,13 +1,13 @@
-import Button from "src/component/Button";
-import Icon from "src/component/Icon";
-import React from "react";
-import { useHistory } from "react-router";
+import Button from 'src/component/Button';
+import Icon from 'src/component/Icon';
+import React from 'react';
+import { useHistory } from 'react-router';
 
 const WalletInfo = () => {
   const history = useHistory();
 
   const changeToAccount = () => {
-    history.push("/account");
+    history.push('/account');
   };
 
   return (

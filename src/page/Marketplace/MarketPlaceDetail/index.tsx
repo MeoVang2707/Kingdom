@@ -1,4 +1,4 @@
-import Cart from "src/component/Cart";
+import Cart from 'src/component/Cart';
 
 const MarketPlaceDetail = () => {
   return (

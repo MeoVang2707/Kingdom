@@ -1,8 +1,8 @@
-import { useBoolean, useClickAway } from "@umijs/hooks";
-import Select, { Option, SelectProps as SelectPropsDefault } from "rc-select";
-import "./index.scss";
-import "rc-select/assets/index.less";
-import React, { useEffect, useState } from "react";
+import { useBoolean, useClickAway } from '@umijs/hooks';
+import Select, { Option, SelectProps as SelectPropsDefault } from 'rc-select';
+import './index.scss';
+import 'rc-select/assets/index.less';
+import React, { useEffect, useState } from 'react';
 
 export interface OptionSelect {
   value: string | number;
@@ -15,7 +15,7 @@ interface SelectProps {
   placeholder?: string;
   classNameDropdown?: string;
   icon?: string;
-  direction?: "ltr" | "rtl";
+  direction?: 'ltr' | 'rtl';
   dropdownRender?: any;
   open?: boolean;
 }
@@ -31,7 +31,7 @@ const RCSelect = React.forwardRef(
       setVal(rest.value);
     }, [rest.value]);
 
-    const onChange = (newVal: SelectPropsDefault["value"]) => {
+    const onChange = (newVal: SelectPropsDefault['value']) => {
       // console.log('aaaaaaa', a);
       setVal(newVal);
 
@@ -43,10 +43,10 @@ const RCSelect = React.forwardRef(
     });
 
     const renderInputIcon = () => {
-      let src: string = "/assets/images/arrow_down.svg";
+      let src: string = '/assets/images/arrow_down.svg';
 
       if (val) {
-        src = "/assets/images/arrow_down_white.svg";
+        src = '/assets/images/arrow_down_white.svg';
       }
 
       return <img src={src} alt="" />;
@@ -61,7 +61,7 @@ const RCSelect = React.forwardRef(
           //   className,
           // ])}
           // dropdownClassName={cls([styles.menu, classNameDropdown])}
-          className={`rcselect ${val ? "rcselect_has_value" : ""} ${className}`}
+          className={`rcselect ${val ? 'rcselect_has_value' : ''} ${className}`}
           dropdownClassName={`rcselectMenu ${classNameDropdown}`}
           inputIcon={renderInputIcon()}
           onClick={setTrue}
@@ -79,12 +79,12 @@ const RCSelect = React.forwardRef(
                   {label}
                 </Option>
               );
-            }
+            },
           )}
         </Select>
       </div>
     );
-  }
+  },
 );
 
 export default React.memo(RCSelect);

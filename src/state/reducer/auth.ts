@@ -3,7 +3,7 @@ import { createAction, createSlice } from '@reduxjs/toolkit';
 const initialState = {
   selectedTab: 'day',
   showAddToMenuScreen: false,
-  showFoodSearchScreen: false
+  showFoodSearchScreen: false,
 };
 
 export const handleChangeField = createAction('food/handleChangeField');
@@ -14,13 +14,13 @@ export const slice = createSlice({
   reducers: {
     updateTab: (state, action) => {
       state.selectedTab = action.payload;
-    }
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(handleChangeField, (state, action) => {
       return { ...state };
     });
-  }
+  },
 });
 
 const reducer = slice.reducer;

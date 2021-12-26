@@ -9,8 +9,8 @@ export type MainObject =
   | MainObjectEnum.SHIP
   | MainObjectEnum.ACCESSORY;
 
-  export enum MainObjectLabel {
-    CHARACTER = 'Character',
-    SHIP = 'Ship',
-    ACCESSORY = 'Accessory',
-  }
+export enum MainObjectLabel {
+  CHARACTER = 'Character',
+  SHIP = 'Ship',
+  ACCESSORY = 'Accessory',
+}

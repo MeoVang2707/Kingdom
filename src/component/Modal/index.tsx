@@ -1,8 +1,8 @@
-import { useBoolean } from "@umijs/hooks";
-import Dialog from "rc-dialog";
-import "rc-dialog/assets/index.css";
-import React, { forwardRef, useImperativeHandle } from "react";
-import "./index.scss";
+import { useBoolean } from '@umijs/hooks';
+import Dialog from 'rc-dialog';
+import 'rc-dialog/assets/index.css';
+import React, { forwardRef, useImperativeHandle } from 'react';
+import './index.scss';
 
 export interface ModalProps {
   visible?: boolean;
@@ -58,14 +58,14 @@ function Modal(props: ModalProps, ref: any) {
       onClose={visible ? onClose : setFalse}
       closeIcon={renderCloseIcon()}
       maskStyle={{
-        backgroundColor: "#1d1d25",
+        backgroundColor: '#1d1d25',
         opacity: 0.7,
       }}
       {...rest}
     >
       {renderTitle()}
 
-      <div className={`${title ? "" : "pt-10"}`}>{children}</div>
+      <div className={`${title ? '' : 'pt-10'}`}>{children}</div>
     </Dialog>
   );
 }

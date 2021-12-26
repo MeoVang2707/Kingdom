@@ -1,11 +1,11 @@
-import ArrowLeft from "src/component/Icon/Pagination/ArrowLeft";
-import PaginationPage from "src/component/Pagination";
-import { MainObject, MainObjectEnum } from "src/constant/Type";
-import { useHistory, useParams } from "react-router";
-import About from "./About";
-import SaleHistory from "./SaleHistory";
-import SellBuy from "./SellBuy";
-import Stats from "./Stats";
+import ArrowLeft from 'src/component/Icon/Pagination/ArrowLeft';
+import PaginationPage from 'src/component/Pagination';
+import { MainObject, MainObjectEnum } from 'src/constant/Type';
+import { useHistory, useParams } from 'react-router';
+import About from './About';
+import SaleHistory from './SaleHistory';
+import SellBuy from './SellBuy';
+import Stats from './Stats';
 
 interface ItemDetailProps {
   isInventory?: boolean;

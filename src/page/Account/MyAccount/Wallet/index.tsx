@@ -1,31 +1,31 @@
-import Button from "src/component/Button";
-import ContainerBoder from "src/component/ContainerBorder";
-import Icon from "src/component/Icon";
-import OneItem from "./Item";
+import Button from 'src/component/Button';
+import ContainerBoder from 'src/component/ContainerBorder';
+import Icon from 'src/component/Icon';
+import OneItem from './Item';
 
 const items1 = [
   {
-    iconName: "bnb",
-    label: "10 BNB",
+    iconName: 'bnb',
+    label: '10 BNB',
   },
   {
-    iconName: "bnb",
-    label: "10 KGC",
+    iconName: 'bnb',
+    label: '10 KGC',
   },
 ];
 
 const items2 = [
   {
-    iconName: "char/char1_small",
-    label: "10 Charactors",
+    iconName: 'char/char1_small',
+    label: '10 Charactors',
   },
   {
-    iconName: "ship/ship1_small",
-    label: "10 Ships",
+    iconName: 'ship/ship1_small',
+    label: '10 Ships',
   },
   {
-    iconName: "ship/ship1_small",
-    label: "10 Accessory",
+    iconName: 'ship/ship1_small',
+    label: '10 Accessory',
   },
 ];
 

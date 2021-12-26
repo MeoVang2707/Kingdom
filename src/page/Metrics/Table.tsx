@@ -1,15 +1,15 @@
-import MainTab from "src/component/Tabs/MainTab";
+import MainTab from 'src/component/Tabs/MainTab';
 // import Tab from '@/layouts/MainLayout/TabHeader/Tab';
-import { useState } from "react";
-import { MainObject, MainObjectEnum } from "src/constant/Type";
-import Item from "./Item";
+import { useState } from 'react';
+import { MainObject, MainObjectEnum } from 'src/constant/Type';
+import Item from './Item';
 
 interface TableProps {
   title: string;
-  type: "list" | "sold";
+  type: 'list' | 'sold';
 }
 
-export default function Table({ title, type = "list" }: TableProps) {
+export default function Table({ title, type = 'list' }: TableProps) {
   const [selected, setSelected] = useState(MainObjectEnum.CHARACTER);
   const handleClickItem = (val: MainObject) => {
     // history.push(`${pathname}?tab=${val}`);
@@ -27,7 +27,7 @@ export default function Table({ title, type = "list" }: TableProps) {
       />
 
       {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => {
-        return <Item type={selected} key={item} isSold={type === "sold"} />;
+        return <Item type={selected} key={item} isSold={type === 'sold'} />;
       })}
     </div>
   );

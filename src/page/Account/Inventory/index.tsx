@@ -1,8 +1,8 @@
-import { useState } from "react";
-import Cart from "src/component/Cart";
-import TabHeader from "src/component/Tabs/MainTab";
-import { MainObjectEnum } from "src/constant/Type";
-import Filters from "src/page/Marketplace/Filters";
+import { useState } from 'react';
+import Cart from 'src/component/Cart';
+import TabHeader from 'src/component/Tabs/MainTab';
+import { MainObjectEnum } from 'src/constant/Type';
+import Filters from 'src/page/Marketplace/Filters';
 
 export default function Inventory() {
   const [tabSelected, setTabSelected] = useState(MainObjectEnum.CHARACTER);

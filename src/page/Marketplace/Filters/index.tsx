@@ -1,16 +1,16 @@
-import Select from "src/component/Select";
-import React from "react";
+import Select from 'src/component/Select';
+import React from 'react';
 
 const options1 = [
-  { value: "all", label: "All" },
-  { value: "sale", label: "For sale" },
-  { value: "notSale", label: "Not for sale" },
+  { value: 'all', label: 'All' },
+  { value: 'sale', label: 'For sale' },
+  { value: 'notSale', label: 'Not for sale' },
 ];
 
 const options2 = [
-  { value: "lowesr", label: "Lowest Price" },
-  { value: "highest", label: "Hightest Price" },
-  { value: "lastesr", label: "Lastest" },
+  { value: 'lowesr', label: 'Lowest Price' },
+  { value: 'highest', label: 'Hightest Price' },
+  { value: 'lastesr', label: 'Lastest' },
 ];
 
 // interface FiltersProps {

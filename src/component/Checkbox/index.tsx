@@ -1,5 +1,5 @@
-import { useState } from "react";
-import Icon from "../Icon";
+import { useState } from 'react';
+import Icon from '../Icon';
 
 interface CheckboxProps {
   selected?: boolean;
@@ -17,7 +17,7 @@ export default function Checkbox(props: CheckboxProps) {
   return (
     <Icon
       className="cursor-pointer"
-      name={val ? "CheckboxChecked" : "checkbox"}
+      name={val ? 'CheckboxChecked' : 'checkbox'}
       onClick={handleClick}
     />
   );

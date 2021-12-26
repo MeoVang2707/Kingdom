@@ -1,6 +1,6 @@
-import { Range, Handle } from "rc-slider";
-import "rc-slider/assets/index.css";
-import React from "react";
+import { Range, Handle } from 'rc-slider';
+import 'rc-slider/assets/index.css';
+import React from 'react';
 
 interface RangeSliderProps {
   min: number;
@@ -10,12 +10,12 @@ interface RangeSliderProps {
 }
 
 const CircleStyle = {
-  backgroundColor: "#E9992A",
+  backgroundColor: '#E9992A',
   width: 16,
   height: 16,
-  border: "3px solid #FFFFFF",
+  border: '3px solid #FFFFFF',
   marginTop: -6,
-  boxShadow: "none",
+  boxShadow: 'none',
 };
 
 const HandleCustome = (props: any) => {
@@ -25,7 +25,7 @@ const HandleCustome = (props: any) => {
       <Handle value={value} offset={offset} {...restProps} />
       <span
         className={`absolute mt-4 text-xs font-semibold text-white ${
-          index === 0 ? "-ml-2" : "-mr-2"
+          index === 0 ? '-ml-2' : '-mr-2'
         }`}
         style={
           index === 0 ? { left: `${offset}%` } : { right: `${100 - offset}%` }
@@ -58,11 +58,11 @@ const RangeSlider = ({
         onChange={onChange}
         step={step}
         defaultValue={[min, max]}
-        dotStyle={{ backgroundColor: "#E9992A" }}
-        railStyle={{ backgroundColor: "#868790" }}
-        activeDotStyle={{ backgroundColor: "red" }}
+        dotStyle={{ backgroundColor: '#E9992A' }}
+        railStyle={{ backgroundColor: '#868790' }}
+        activeDotStyle={{ backgroundColor: 'red' }}
         handleStyle={[CircleStyle, CircleStyle]}
-        trackStyle={[{ backgroundColor: "#E9992A" }]}
+        trackStyle={[{ backgroundColor: '#E9992A' }]}
         handle={HandleCustome}
       />
     </div>

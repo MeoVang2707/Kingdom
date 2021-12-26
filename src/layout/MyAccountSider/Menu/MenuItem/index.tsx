@@ -1,6 +1,6 @@
-import React from "react";
-import { useHistory } from "react-router";
-import { MenuAccountSider } from "..";
+import React from 'react';
+import { useHistory } from 'react-router';
+import { MenuAccountSider } from '..';
 
 interface MenuItemProps {
   item: Record<string, any>;
@@ -25,11 +25,11 @@ const MenuItem = ({ item, onSelect, activeKey, className }: MenuItemProps) => {
   return (
     <div
       className={`${
-        isActiveKey ? "bg-accent-500 text-white" : "text-primary-100"
+        isActiveKey ? 'bg-accent-500 text-white' : 'text-primary-100'
       } p-2 rounded-lg flex items-center cursor-pointer ${className}`}
       onClick={handleClick}
     >
-      <Icon fill={isActiveKey ? "#ffffff" : "#868790"} />
+      <Icon fill={isActiveKey ? '#ffffff' : '#868790'} />
       <span className="pl-2 font-semibold leading-6">{item.title}</span>
     </div>
   );

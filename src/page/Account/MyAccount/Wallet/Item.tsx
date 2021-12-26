@@ -1,10 +1,10 @@
-import ContainerBoder from "src/component/ContainerBorder";
-import Icon from "src/component/Icon";
+import ContainerBoder from 'src/component/ContainerBorder';
+import Icon from 'src/component/Icon';
 
 interface OneItemProps {
   iconName: string;
   label: string;
-  iconType?: "svg" | "png";
+  iconType?: 'svg' | 'png';
 }
 
 export default function OneItem({ iconName, label, iconType }: OneItemProps) {

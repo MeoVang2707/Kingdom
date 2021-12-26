@@ -1,6 +1,6 @@
-import { createBrowserHistory } from "history";
-import { Router } from "react-router-dom";
-import Routes from "./routes";
+import { createBrowserHistory } from 'history';
+import { Router } from 'react-router-dom';
+import Routes from './routes';
 
 const history = createBrowserHistory();
 
@@ -11,6 +11,5 @@ function App() {
     </Router>
   );
 }
-
 
 export default App;

@@ -1,22 +1,22 @@
-import Tab from "./OneTab";
-import { MainObject, MainObjectEnum, MainObjectLabel } from "src/constant/Type";
+import Tab from './OneTab';
+import { MainObject, MainObjectEnum, MainObjectLabel } from 'src/constant/Type';
 
 export const tabs = [
   {
-    logo: "character",
-    logoSelected: "character_selected",
+    logo: 'character',
+    logoSelected: 'character_selected',
     title: MainObjectLabel.CHARACTER,
     value: MainObjectEnum.CHARACTER,
   },
   {
-    logo: "ship",
-    logoSelected: "ShipSelected",
+    logo: 'ship',
+    logoSelected: 'ShipSelected',
     title: MainObjectLabel.SHIP,
     value: MainObjectEnum.SHIP,
   },
   {
-    logo: "accessory",
-    logoSelected: "accessory_selected",
+    logo: 'accessory',
+    logoSelected: 'accessory_selected',
     title: MainObjectLabel.ACCESSORY,
     value: MainObjectEnum.ACCESSORY,
   },

@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import Filters from "./Filters";
-import MarketPlaceDetail from "./MarketPlaceDetail";
-import MainTab from "src/component/Tabs/MainTab";
-import { MainObject, MainObjectEnum } from "src/constant/Type";
-import LeftMenu from "./LeftMenu";
+import React, { useState } from 'react';
+import Filters from './Filters';
+import MarketPlaceDetail from './MarketPlaceDetail';
+import MainTab from 'src/component/Tabs/MainTab';
+import { MainObject, MainObjectEnum } from 'src/constant/Type';
+import LeftMenu from './LeftMenu';
 
 interface MarketplaceProps {}
 
@@ -25,7 +25,7 @@ const Marketplace = (props: MarketplaceProps) => {
 
       <div className="p-4 flex">
         <div>
-          <LeftMenu selected={selected}/>
+          <LeftMenu selected={selected} />
         </div>
 
         <div className="px-4 grow">

@@ -1,18 +1,18 @@
-import PaginationPage from "src/component/Pagination";
-import { useState } from "react";
-import { useHistory } from "react-router";
-import Table from "./Table";
-import Tabs from "./Tabs";
-import Total from "./Total";
-import Icon from "src/component/Icon";
+import PaginationPage from 'src/component/Pagination';
+import { useState } from 'react';
+import { useHistory } from 'react-router';
+import Table from './Table';
+import Tabs from './Tabs';
+import Total from './Total';
+import Icon from 'src/component/Icon';
 
 export default function Metrics() {
-  const [selectedTab, setSelecetedTab] = useState("24h");
+  const [selectedTab, setSelecetedTab] = useState('24h');
 
   const history = useHistory();
 
   const onClick = () => {
-    history.push("/marketplace");
+    history.push('/marketplace');
   };
 
   const onChangePage = () => {};

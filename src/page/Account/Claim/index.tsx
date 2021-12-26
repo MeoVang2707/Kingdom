@@ -1,5 +1,5 @@
-import Icon from "src/component/Icon";
-import Container from "./Container";
+import Icon from 'src/component/Icon';
+import Container from './Container';
 
 export default function Claim() {
   return (

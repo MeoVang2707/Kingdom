@@ -1,16 +1,16 @@
-import Button from "src/component/Button";
+import Button from 'src/component/Button';
 // import { useIsConnected } from '@/utils/hooks/connect/wallet';
-import React from "react";
-import Navigation from "./Navigation";
-import WalletInfo from "./WalletInfo";
-import Icon from "src/component/Icon";
-import { useHistory } from "react-router";
+import React from 'react';
+import Navigation from './Navigation';
+import WalletInfo from './WalletInfo';
+import Icon from 'src/component/Icon';
+import { useHistory } from 'react-router';
 
 const Header = () => {
   const isConnected: boolean = true;
   const history = useHistory();
   const onClickLogo = () => {
-    history.push("/");
+    history.push('/');
   };
 
   return (

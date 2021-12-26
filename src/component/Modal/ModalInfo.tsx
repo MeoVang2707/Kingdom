@@ -1,7 +1,7 @@
-import Button from "src/component/Button";
-import Modal, { ModalProps } from "./";
+import Button from 'src/component/Button';
+import Modal, { ModalProps } from './';
 
-type TypeModal = "confirm" | "danger" | "success";
+type TypeModal = 'confirm' | 'danger' | 'success';
 
 interface ModalInfoProps extends ModalProps {
   type: TypeModal;
@@ -12,9 +12,9 @@ interface ModalInfoProps extends ModalProps {
 }
 
 const mapIcon = {
-  confirm: "/assets/images/infor_big.svg",
-  danger: "/assets/images/danger_big.svg",
-  success: "/assets/images/success_big.svg",
+  confirm: '/assets/images/infor_big.svg',
+  danger: '/assets/images/danger_big.svg',
+  success: '/assets/images/success_big.svg',
 };
 
 export default function ModalInfo({

@@ -1,4 +1,4 @@
-import { MainObject, MainObjectEnum } from "src/constant/Type";
+import { MainObject, MainObjectEnum } from 'src/constant/Type';
 
 interface ItemProps {
   type: MainObject;
@@ -7,18 +7,18 @@ interface ItemProps {
 
 const items = {
   [MainObjectEnum.CHARACTER]: [
-    { img: "/assets/images/ObjectProps/sta.svg", value: "sta" },
-    { img: "/assets/images/ObjectProps/str.svg", value: "str" },
-    { img: "/assets/images/ObjectProps/agi.svg", value: "agi" },
-    { img: "/assets/images/ObjectProps/int.svg", value: "int" },
-    { img: "/assets/images/ObjectProps/spd.svg", value: "spd" },
+    { img: '/assets/images/ObjectProps/sta.svg', value: 'sta' },
+    { img: '/assets/images/ObjectProps/str.svg', value: 'str' },
+    { img: '/assets/images/ObjectProps/agi.svg', value: 'agi' },
+    { img: '/assets/images/ObjectProps/int.svg', value: 'int' },
+    { img: '/assets/images/ObjectProps/spd.svg', value: 'spd' },
   ],
   [MainObjectEnum.SHIP]: [],
   [MainObjectEnum.ACCESSORY]: [
-    { img: "/assets/images/ObjectProps/sta.svg", value: "sta" },
-    { img: "/assets/images/ObjectProps/str.svg", value: "str" },
-    { img: "/assets/images/ObjectProps/agi.svg", value: "agi" },
-    { img: "/assets/images/ObjectProps/int.svg", value: "int" },
+    { img: '/assets/images/ObjectProps/sta.svg', value: 'sta' },
+    { img: '/assets/images/ObjectProps/str.svg', value: 'str' },
+    { img: '/assets/images/ObjectProps/agi.svg', value: 'agi' },
+    { img: '/assets/images/ObjectProps/int.svg', value: 'int' },
   ],
 };
 
@@ -26,7 +26,7 @@ export default function Item({ type, isSold }: ItemProps) {
   return (
     <div
       className="h-16 flex justify-between items-center border border-primary-100 p-2 rounded-lg mt-4 flex-wrap hover:border-accent-500 cursor-pointer"
-      style={{ boxSizing: "border-box" }}
+      style={{ boxSizing: 'border-box' }}
     >
       <div className="flex items-center">
         <img
@@ -43,7 +43,7 @@ export default function Item({ type, isSold }: ItemProps) {
           <div className="flex items-center ml-8 w-64">
             {items[type]?.map?.((item, i) => {
               return (
-                <div key={item.value} className={i === 0 ? "" : "ml-6"}>
+                <div key={item.value} className={i === 0 ? '' : 'ml-6'}>
                   <img src={item.img} alt="icon" />
                   <span className="mt-1 text-white text-xs font-semibold">
                     100
@@ -60,7 +60,7 @@ export default function Item({ type, isSold }: ItemProps) {
               <div className="text-primary-100 text-xs leading-5">BUYER</div>
               <div
                 className="font-semibold text-white text-sm"
-                style={{ lineHeight: "22px" }}
+                style={{ lineHeight: '22px' }}
               >
                 NamNQLC
               </div>
@@ -72,7 +72,7 @@ export default function Item({ type, isSold }: ItemProps) {
               <div className="text-primary-100 text-xs leading-5">SELLER</div>
               <div
                 className="font-semibold text-white text-sm"
-                style={{ lineHeight: "22px" }}
+                style={{ lineHeight: '22px' }}
               >
                 ChiNTNQ
               </div>

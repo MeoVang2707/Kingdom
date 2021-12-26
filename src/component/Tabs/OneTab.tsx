@@ -1,4 +1,4 @@
-import Icon from "../Icon";
+import Icon from '../Icon';
 
 interface OneTabProps {
   title: string;
@@ -19,7 +19,7 @@ export default function OneTab(props: OneTabProps) {
         <Icon name={props.logo} />
         <div
           className={`font-bold pl-2 ${
-            props.isSelected ? "text-accent-500 " : "text-primary-100"
+            props.isSelected ? 'text-accent-500 ' : 'text-primary-100'
           }`}
         >
           {props.title}
@@ -27,7 +27,7 @@ export default function OneTab(props: OneTabProps) {
       </div>
       <div
         className={`h-3px rounded-lg ${
-          props.isSelected ? "bg-accent-500 " : "bg-primary-100"
+          props.isSelected ? 'bg-accent-500 ' : 'bg-primary-100'
         }`}
       />
     </div>

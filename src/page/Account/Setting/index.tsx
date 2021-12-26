@@ -1,38 +1,38 @@
-import Button from "src/component/Button";
-import Input from "src/component/Input";
-import { useState } from "react";
+import Button from 'src/component/Button';
+import Input from 'src/component/Input';
+import { useState } from 'react';
 import {
   ModalEmail,
   ModalAddPassword,
   ModalChangePassword,
   ModalForgot,
-} from "./Modal";
+} from './Modal';
 
 enum ModalName {
-  ADD_EMAIL = "Add Email",
-  CHANGE_EMAIL = "Change Email",
-  ADD_PASS = "Add Password",
-  CHANGE_PASS = "Change Password",
-  CREATE_NEW_PASS = "Creat new password",
-  FORGET_PASS = "Forget Password",
+  ADD_EMAIL = 'Add Email',
+  CHANGE_EMAIL = 'Change Email',
+  ADD_PASS = 'Add Password',
+  CHANGE_PASS = 'Change Password',
+  CREATE_NEW_PASS = 'Creat new password',
+  FORGET_PASS = 'Forget Password',
 }
 
 export default function Setting() {
-  const [modalName, setModalName] = useState("");
+  const [modalName, setModalName] = useState('');
   const onClickOpenModal = (val: string) => () => {
     setModalName(val);
   };
 
   const onCloseModal = () => {
-    setModalName("");
+    setModalName('');
   };
 
   const onClickAddEmailConfirm = (val: string) => {
-    console.log("val", val);
+    console.log('val', val);
   };
 
   const onClickAddPassWordConfirm = (pass: string, rePass: string) => {
-    console.log("pass", pass, rePass);
+    console.log('pass', pass, rePass);
   };
 
   const onForgotPass = () => {
@@ -42,13 +42,13 @@ export default function Setting() {
   const onClickChangePasswordConfirm = (
     currPass: string,
     pass: string,
-    rePass: string
+    rePass: string,
   ) => {
-    setModalName("");
+    setModalName('');
   };
 
   const onForgetPassConfirm = (val: string) => {
-    setModalName("");
+    setModalName('');
   };
 
   return (
@@ -115,7 +115,7 @@ export default function Setting() {
 
       <ModalEmail
         visible={[ModalName.ADD_EMAIL, ModalName.CHANGE_EMAIL].includes(
-          modalName as ModalName
+          modalName as ModalName,
         )}
         onClickConfirm={onClickAddEmailConfirm}
         onClose={onCloseModal}
@@ -123,14 +123,14 @@ export default function Setting() {
 
       <ModalAddPassword
         visible={[ModalName.ADD_PASS, ModalName.CREATE_NEW_PASS].includes(
-          modalName as ModalName
+          modalName as ModalName,
         )}
         onClickConfirm={onClickAddPassWordConfirm}
         onClose={onCloseModal}
         tittle={
           modalName === ModalName.ADD_PASS
-            ? "Add password"
-            : "Create new password"
+            ? 'Add password'
+            : 'Create new password'
         }
       />
 

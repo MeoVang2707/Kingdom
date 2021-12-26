@@ -1,6 +1,6 @@
-import Button from "src/component/Button";
-import ContainerBoder from "src/component/ContainerBorder";
-import React from "react";
+import Button from 'src/component/Button';
+import ContainerBoder from 'src/component/ContainerBorder';
+import React from 'react';
 
 interface ContainerProps {
   children: React.ReactNode;

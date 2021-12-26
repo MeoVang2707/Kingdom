@@ -1,55 +1,55 @@
 // import { useWallet } from "@/utils/hooks/connect/wallet";
-import React from "react";
-import { useLocation } from "react-router";
-import Icon from "src/component/Icon";
-import AccountIcon from "src/component/Icon/Account";
-import ActivityIcon from "src/component/Icon/Activity";
-import ClaimIcon from "src/component/Icon/Claim";
-import InventoryIcon from "src/component/Icon/Inventory";
-import Settingicon from "src/component/Icon/Setting";
+import React from 'react';
+import { useLocation } from 'react-router';
+import Icon from 'src/component/Icon';
+import AccountIcon from 'src/component/Icon/Account';
+import ActivityIcon from 'src/component/Icon/Activity';
+import ClaimIcon from 'src/component/Icon/Claim';
+import InventoryIcon from 'src/component/Icon/Inventory';
+import Settingicon from 'src/component/Icon/Setting';
 // import { history, useIntl, useLocation } from "umi";
-import Infor from "./Infor";
-import MenuItem from "./MenuItem";
+import Infor from './Infor';
+import MenuItem from './MenuItem';
 
 interface MenuProps {}
 
 export enum MenuAccountSider {
-  ACCOUNT = "account",
-  INVENTORY = "inventory",
-  ACTIVITY = "activity",
-  CLAIM = "claim-tokens",
-  SETTING = "settings",
+  ACCOUNT = 'account',
+  INVENTORY = 'inventory',
+  ACTIVITY = 'activity',
+  CLAIM = 'claim-tokens',
+  SETTING = 'settings',
 }
 
 const menus: any[] = [
   {
     key: MenuAccountSider.ACCOUNT,
-    path: "/account",
-    title: "Account",
+    path: '/account',
+    title: 'Account',
     icon: AccountIcon,
   },
   {
     key: MenuAccountSider.INVENTORY,
-    path: "/account/inventory",
-    title: "Inventory",
+    path: '/account/inventory',
+    title: 'Inventory',
     icon: InventoryIcon,
   },
   {
     key: MenuAccountSider.ACTIVITY,
-    path: "/account/activity",
-    title: "Activity",
+    path: '/account/activity',
+    title: 'Activity',
     icon: ActivityIcon,
   },
   {
     key: MenuAccountSider.CLAIM,
-    path: "/account/claim-tokens",
-    title: "Claim Tokens",
+    path: '/account/claim-tokens',
+    title: 'Claim Tokens',
     icon: ClaimIcon,
   },
   {
     key: MenuAccountSider.SETTING,
-    path: "/account/settings",
-    title: "Account Settings",
+    path: '/account/settings',
+    title: 'Account Settings',
     icon: Settingicon,
   },
 ];
@@ -60,11 +60,11 @@ const Menu = (props: MenuProps) => {
   // const wallet = useWallet();
 
   const [activeKey, setActiveKey] = React.useState<MenuAccountSider>(
-    MenuAccountSider.ACCOUNT
+    MenuAccountSider.ACCOUNT,
   );
 
   React.useEffect(() => {
-    const splitPath: string[] = pathname.split("/");
+    const splitPath: string[] = pathname.split('/');
     const getPath: string = splitPath?.[2];
 
     setActiveKey((getPath as MenuAccountSider) || MenuAccountSider.ACCOUNT);
@@ -82,7 +82,7 @@ const Menu = (props: MenuProps) => {
   return (
     <div
       className="border border-primary-100 rounded-lg p-4 w-64 flex flex-col justify-between fixed"
-      style={{ height: "calc(100vh - 112px)" }}
+      style={{ height: 'calc(100vh - 112px)' }}
     >
       <div className="flex flex-col justify-between">
         <Infor />
@@ -94,7 +94,7 @@ const Menu = (props: MenuProps) => {
               key={item.title}
               activeKey={activeKey}
               onSelect={onSelect}
-              className={index === 0 ? "" : "mt-2"}
+              className={index === 0 ? '' : 'mt-2'}
             />
           ))}
         </div>

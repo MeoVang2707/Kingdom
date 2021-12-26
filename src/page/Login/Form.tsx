@@ -1,5 +1,5 @@
-import Button from "src/component/Button";
-import Input from "src/component/Input";
+import Button from 'src/component/Button';
+import Input from 'src/component/Input';
 
 export default function Form() {
   return (
