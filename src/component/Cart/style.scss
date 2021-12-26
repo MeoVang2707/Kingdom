@@ -1,0 +1,8 @@
+.cartCharacter {
+  box-sizing: border-box;
+  border: 2px solid transparent;
+
+  &:hover {
+    border: 2px solid #e9992a;
+  }
+}
