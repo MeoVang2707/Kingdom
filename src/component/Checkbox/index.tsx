@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Icon from '../Icon';
 
 interface CheckboxProps {
@@ -13,6 +13,10 @@ export default function Checkbox(props: CheckboxProps) {
     setVal(!val);
     props.onClick?.(!val);
   };
+
+  useEffect(() => {
+    setVal(props.selected);
+  }, [props.selected]);
 
   return (
     <Icon

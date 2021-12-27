@@ -22,10 +22,7 @@ const Menu = (props: MenuProps) => {
         jrichards123@gmail.com
       </div>
       <div className="flex justify-center">
-        <Button
-          icon={<Icon name="qr" />}
-          variant="outline"
-        >
+        <Button icon={<Icon name="qr" />} variant="outline">
           Show QR
         </Button>
       </div>

@@ -1,17 +1,12 @@
-import React, { useState } from 'react';
-import Filters from './Filters';
-import MarketPlaceDetail from './MarketPlaceDetail';
-import MainTab from 'src/component/Tabs/MainTab';
-import {
-  FilterValue,
-  MainObject,
-  MainObjectEnum,
-  SortValue,
-} from 'src/constant/Type';
-import LeftMenu from './LeftMenu';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from 'src/state/store';
+import MainTab from 'src/component/Tabs/MainTab';
+import { FilterValue, MainObject, SortValue } from 'src/constant/Type';
 import { handleChangeField } from 'src/state/reducer/marketplace';
+import { RootState } from 'src/state/store';
+import Filters from './Filters';
+import LeftMenu from './LeftMenu';
+import MarketPlaceDetail from './MarketPlaceDetail';
 
 interface MarketplaceProps {}
 
@@ -21,7 +16,7 @@ const Marketplace = (props: MarketplaceProps) => {
     (state: RootState) => state.marketplace,
   );
   const handleClickItem = (val: MainObject) => {
-    dispatch(handleChangeField({ selectedTag: val }));
+    dispatch(handleChangeField({ selectedTag: val, filters: {} }));
   };
 
   const handleChangeFilterPrice = (val: string) => {

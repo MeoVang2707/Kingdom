@@ -1,4 +1,3 @@
-import { SelectProps } from 'rc-select';
 import React from 'react';
 import Select from 'src/component/Select';
 import { FilterLabelEnum, SortLabelEnum } from 'src/constant';

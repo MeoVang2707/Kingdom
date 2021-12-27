@@ -14,8 +14,6 @@ export default function Tabs({ selected, onChangeTab }: TabsProps) {
     onChangeTab(val);
   };
 
-  console.log('selected', selected);
-
   return (
     <div className="flex justify-center items-center border border-accent-500 p-1 rounded-lg">
       {tabs.map((item) => {

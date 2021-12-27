@@ -15,7 +15,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
     if (!pathname.includes('/marketplace')) {
       dispatch(resetStateMarketPlace());
     }
-  }, [pathname]);
+  }, [dispatch, pathname]);
 
   return (
     <div>

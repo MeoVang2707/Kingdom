@@ -11,14 +11,14 @@ interface MarketType {
   selectedTag: MainObject;
   filterPrice: FilterValue;
   sort: SortValue | '';
-  filters: { [key: string]: string | string[] }[];
+  filters: { [key: string]: string | string[] };
 }
 
 const initialState: MarketType = {
   selectedTag: MainObjectEnum.CHARACTER,
   filterPrice: FilterValueEnum.SALE,
   sort: '',
-  filters: [],
+  filters: {},
 };
 
 export const handleChangeField = createAction<Partial<MarketType>>(

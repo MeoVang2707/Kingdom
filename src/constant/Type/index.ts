@@ -20,13 +20,13 @@ export type FilterValue =
   | FilterValueEnum.SALE
   | FilterValueEnum.NOTSALE;
 
-  export enum SortValueEnum {
-    LOWEST = 'lowest',
-    HIGHEST = 'highest',
-    LASTEST = 'lastet',
-  }
-  
-  export type SortValue =
-    | SortValueEnum.LOWEST
-    | SortValueEnum.HIGHEST
-    | SortValueEnum.LASTEST;
+export enum SortValueEnum {
+  LOWEST = 'lowest',
+  HIGHEST = 'highest',
+  LASTEST = 'lastet',
+}
+
+export type SortValue =
+  | SortValueEnum.LOWEST
+  | SortValueEnum.HIGHEST
+  | SortValueEnum.LASTEST;

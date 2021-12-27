@@ -1,8 +1,11 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Checkbox from 'src/component/Checkbox';
 import Icon from 'src/component/Icon';
 import RangeSlider from 'src/component/RangeSlider';
 import { MainObject, MainObjectEnum } from 'src/constant/Type';
+import { handleChangeField } from 'src/state/reducer/marketplace';
+import { RootState } from 'src/state/store';
 
 interface MenuProps {
   selected: MainObject;
@@ -15,6 +18,7 @@ export enum MenuSider {
 
 const ClassFilter = {
   title: 'CLASS',
+  value: 'class',
   filters: [
     {
       name: 'Warrior',
@@ -36,6 +40,7 @@ const ClassFilter = {
 
 const RarityFilter = {
   title: 'RARITY',
+  value: 'rarity',
   filters: [
     {
       name: 'Legendary',
@@ -50,7 +55,7 @@ const RarityFilter = {
     {
       name: 'Rare',
       logo: 'RarityRare',
-      value: 'legendary',
+      value: 'rare',
     },
     {
       name: 'Common',
@@ -62,6 +67,7 @@ const RarityFilter = {
 
 const BuffFilter = {
   title: 'BUFF AMOUNT',
+  value: 'buff',
   filters: [
     {
       name: '0 buff',
@@ -88,6 +94,7 @@ const BuffFilter = {
 
 const StatFilter = {
   title: 'STAT',
+  value: 'stat',
   filters: [
     {
       name: 'Stat 1',
@@ -132,7 +139,32 @@ const filtersAccessory = [
 ];
 
 const Menu = ({ selected }: MenuProps) => {
-  const filters = filtersByObject[selected] || filtersByObject['character'];
+  const dispatch = useDispatch();
+  const filtersMap =
+    filtersByObject[selected] || filtersByObject[MainObjectEnum.CHARACTER];
+
+  const { filters } = useSelector((state: RootState) => state.marketplace);
+
+  const onClickFilter = () => {
+    dispatch(handleChangeField({ filters: {} }));
+  };
+
+  const onClickCheckBox =
+    (name: string, name2: string) => (checked: boolean) => {
+      // if(checked){
+      //   if(filters)
+      // }
+      if (checked) {
+        dispatch(handleChangeField({ filters: { ...filters, [name]: name2 } }));
+      } else {
+        const newFilters = { ...filters };
+        delete newFilters[name];
+
+        dispatch(handleChangeField({ filters: newFilters }));
+      }
+    };
+
+  const filterLength = Object.keys(filters).length;
 
   return (
     <div className="h-full bg-primary-300 p-4 w-64 rounded-lg">
@@ -140,17 +172,20 @@ const Menu = ({ selected }: MenuProps) => {
         <div className="flex items-center">
           <Icon name="filter" type="png" />
           <div className="text-white text-xl font-semibold pl-2">
-            Filter ({2})
+            Filter {filterLength > 0 && `(${filterLength})`}
           </div>
         </div>
 
-        <div className="text-sm cursor-pointer text-accent-500 font-semibold">
+        <div
+          className="text-sm cursor-pointer text-accent-500 font-semibold"
+          onClick={onClickFilter}
+        >
           Clear filter
         </div>
       </div>
 
       <div className="mt-8">
-        {filters.map((item) => {
+        {filtersMap.map((item) => {
           return (
             <div key={item.title} className="mb-6">
               <div className="text-xs text-accent-500 font-bold">
@@ -160,7 +195,10 @@ const Menu = ({ selected }: MenuProps) => {
               {item.filters.map((item2) => {
                 return (
                   <div className="mt-2 flex items-center" key={item2.name}>
-                    <Checkbox />
+                    <Checkbox
+                      selected={filters[item.value] === item2.value}
+                      onClick={onClickCheckBox(item.value, item2.value)}
+                    />
                     <Icon className="ml-2" name={item2.logo} />
                     <div className="ml-1 text-white font-bold">
                       {item2.name}

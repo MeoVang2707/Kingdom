@@ -38,11 +38,7 @@ export default function ItemDetail({ isInventory }: ItemDetailProps) {
 
       <div className="flex justify-between mt-6">
         <div>
-          <Icon
-            name="/char/char1"
-            type="png"
-            className="w-25rem max-w-25"
-          />
+          <Icon name="/char/char1" type="png" className="w-25rem max-w-25" />
         </div>
 
         <div className="pl-7.5rem" style={{ flexGrow: 1 }}>
