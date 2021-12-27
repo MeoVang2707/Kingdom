@@ -106,14 +106,14 @@ const routesConfig: RouteProps[] = [
     layout: MainLayout,
     component: ItemDetail,
   },
-  // {
-  //   path: '*',
-  //   routes: [
-  //     {
-  //       component: () => <Redirect to="/" />,
-  //     },
-  //   ],
-  // },
+  {
+    path: '*',
+    routes: [
+      {
+        component: () => <Redirect to="/" />,
+      },
+    ],
+  },
 ];
 
 const renderRoutes = (routes: RouteProps[]) =>

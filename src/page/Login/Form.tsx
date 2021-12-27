@@ -1,4 +1,4 @@
-import { ChangeEventHandler, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import Button from 'src/component/Button';
