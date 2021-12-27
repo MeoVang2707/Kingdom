@@ -1,19 +1,20 @@
+import Icon from 'src/component/Icon';
 import { MainObjectEnum, MainObject } from 'src/constant/Type';
 
 const items = {
   [MainObjectEnum.CHARACTER]: [
-    { img: '/assets/images/ObjectProps/sta.svg', title: 'STA', value: 'sta' },
-    { img: '/assets/images/ObjectProps/str.svg', title: 'STR', value: 'str' },
-    { img: '/assets/images/ObjectProps/agi.svg', title: 'AGI', value: 'agi' },
-    { img: '/assets/images/ObjectProps/int.svg', title: 'INT', value: 'int' },
-    { img: '/assets/images/ObjectProps/spd.svg', title: 'SPD', value: 'spd' },
+    { img: 'ObjectProps/sta', title: 'STA', value: 'sta' },
+    { img: 'ObjectProps/str', title: 'STR', value: 'str' },
+    { img: 'ObjectProps/agi', title: 'AGI', value: 'agi' },
+    { img: 'ObjectProps/int', title: 'INT', value: 'int' },
+    { img: 'ObjectProps/spd', title: 'SPD', value: 'spd' },
   ],
   [MainObjectEnum.SHIP]: [],
   [MainObjectEnum.ACCESSORY]: [
-    { img: '/assets/images/ObjectProps/sta.svg', title: 'STA', value: 'sta' },
-    { img: '/assets/images/ObjectProps/str.svg', title: 'STR', value: 'str' },
-    { img: '/assets/images/ObjectProps/agi.svg', title: 'AGI', value: 'agi' },
-    { img: '/assets/images/ObjectProps/int.svg', title: 'INT', value: 'int' },
+    { img: 'ObjectProps/sta', title: 'STA', value: 'sta' },
+    { img: 'ObjectProps/str', title: 'STR', value: 'str' },
+    { img: 'ObjectProps/agi', title: 'AGI', value: 'agi' },
+    { img: 'ObjectProps/int', title: 'INT', value: 'int' },
   ],
 };
 
@@ -34,7 +35,7 @@ export default function Stats({ type }: StatsProps) {
                 {item.title}
               </div>
               <div className="flex items-center">
-                <img src={item.img} alt="icon" />
+                <Icon name={item.img} alt="icon" />
                 <span className="ml-1 text-white text-xs font-semibold">
                   100
                 </span>

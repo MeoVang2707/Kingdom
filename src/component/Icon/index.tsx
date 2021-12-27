@@ -15,5 +15,13 @@ export default function Icon({
   type = 'svg',
   ...props
 }: IconContainerProps & React.ImgHTMLAttributes<HTMLImageElement>) {
-  return <img src={`/assets/images/${name}.${type}`} alt={name} {...props} />;
+  return (
+    <img
+      src={`${
+        process.env.NODE_ENV === 'development' ? '' : '/Kingdom'
+      }/assets/images/${name}.${type}`}
+      alt={name}
+      {...props}
+    />
+  );
 }

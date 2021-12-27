@@ -1,5 +1,6 @@
 import React from 'react';
 import Checkbox from 'src/component/Checkbox';
+import Icon from 'src/component/Icon';
 import RangeSlider from 'src/component/RangeSlider';
 import { MainObject, MainObjectEnum } from 'src/constant/Type';
 
@@ -17,17 +18,17 @@ const ClassFilter = {
   filters: [
     {
       name: 'Warrior',
-      logo: '/assets/images/warrrior.svg',
+      logo: 'warrrior',
       value: 'warrior',
     },
     {
       name: 'Mage',
-      logo: '/assets/images/mage.svg',
+      logo: 'mage',
       value: 'mage',
     },
     {
       name: 'Assasin',
-      logo: '/assets/images/assasin.svg',
+      logo: 'assasin',
       value: 'assasin',
     },
   ],
@@ -38,22 +39,22 @@ const RarityFilter = {
   filters: [
     {
       name: 'Legendary',
-      logo: '/assets/images/RarityLegend.svg',
+      logo: 'RarityLegend',
       value: 'legendary',
     },
     {
       name: 'Epic',
-      logo: '/assets/images/RarityEpic.svg',
+      logo: 'RarityEpic',
       value: 'epic',
     },
     {
       name: 'Rare',
-      logo: '/assets/images/RarityRare.svg',
+      logo: 'RarityRare',
       value: 'legendary',
     },
     {
       name: 'Common',
-      logo: '/assets/images/RarityCommon.svg',
+      logo: 'RarityCommon',
       value: 'common',
     },
   ],
@@ -64,22 +65,22 @@ const BuffFilter = {
   filters: [
     {
       name: '0 buff',
-      logo: '/assets/images/token.svg',
+      logo: 'token',
       value: '0',
     },
     {
       name: '1 buff',
-      logo: '/assets/images/token.svg',
+      logo: 'token',
       value: '1',
     },
     {
       name: '2 buffs',
-      logo: '/assets/images/token.svg',
+      logo: 'token',
       value: '2',
     },
     {
       name: '3 buffs',
-      logo: '/assets/images/token.svg',
+      logo: 'token',
       value: '3',
     },
   ],
@@ -90,12 +91,12 @@ const StatFilter = {
   filters: [
     {
       name: 'Stat 1',
-      logo: '/assets/images/token.svg',
+      logo: 'token',
       value: '1',
     },
     {
       name: 'Stat 2',
-      logo: '/assets/images/token.svg',
+      logo: 'token',
       value: '2',
     },
   ],
@@ -137,7 +138,7 @@ const Menu = ({ selected }: MenuProps) => {
     <div className="h-full bg-primary-300 p-4 w-64 rounded-lg">
       <div className="flex items-center justify-between">
         <div className="flex items-center">
-          <img alt="filter" src="/assets/images/filter.png" />
+          <Icon name="filter" type="png" />
           <div className="text-white text-xl font-semibold pl-2">
             Filter ({2})
           </div>
@@ -160,7 +161,7 @@ const Menu = ({ selected }: MenuProps) => {
                 return (
                   <div className="mt-2 flex items-center" key={item2.name}>
                     <Checkbox />
-                    <img className="ml-2" alt="logo" src={item2.logo} />
+                    <Icon className="ml-2" name={item2.logo} />
                     <div className="ml-1 text-white font-bold">
                       {item2.name}
                     </div>

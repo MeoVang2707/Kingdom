@@ -2,6 +2,7 @@ import { useBoolean } from '@umijs/hooks';
 import Dialog from 'rc-dialog';
 import 'rc-dialog/assets/index.css';
 import React, { forwardRef, useImperativeHandle } from 'react';
+import Icon from '../Icon';
 import './index.scss';
 
 export interface ModalProps {
@@ -46,7 +47,7 @@ function Modal(props: ModalProps, ref: any) {
   const renderCloseIcon = (): React.ReactNode => {
     if (closeIcon) return closeIcon;
 
-    return <img src="/assets/images/close_square.svg" alt="" />;
+    return <Icon name="close_square" />;
   };
 
   return (

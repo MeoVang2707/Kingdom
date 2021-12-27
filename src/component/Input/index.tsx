@@ -1,6 +1,7 @@
 import React from 'react';
 import { useToggle } from '@umijs/hooks';
 import './style.scss';
+import Icon from '../Icon';
 interface InputProps {
   className?: string;
   disabled?: boolean;
@@ -64,10 +65,10 @@ const Input = React.forwardRef(
     };
 
     const srcEyePassword = (): string => {
-      let src: string = '/assets/images/eye.svg';
+      let src: string = 'eye';
 
       if (isVisibleEye) {
-        src = '/assets/images/eye_hide.svg';
+        src = 'eye_hide';
       }
 
       return src;
@@ -116,10 +117,9 @@ const Input = React.forwardRef(
 
         {isTypePassword && !disabled && (
           <div className="absolute h-full right-4 top-0 flex items-center">
-            <img
+            <Icon
               className="cursor-pointer"
-              alt="password"
-              src={srcEyePassword()}
+              name={srcEyePassword()}
               onClick={handleToggleEyes}
             />
           </div>

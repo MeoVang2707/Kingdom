@@ -1,3 +1,5 @@
+import Icon from 'src/component/Icon';
+
 export default function About() {
   return (
     <div>
@@ -10,7 +12,7 @@ export default function About() {
               CLASS
             </div>
             <div className="flex items-center">
-              <img alt="icon" src="/assets/images/warrrior.svg" />
+              <Icon name="warrrior" />
               <span className="pl-1 text-white font-semibold leading-6">
                 Warrior
               </span>
@@ -22,7 +24,7 @@ export default function About() {
               RARITY
             </div>
             <div className="flex items-center">
-              <img alt="icon" src="/assets/images/RarityLegend.svg" />
+              <Icon name="RarityLegend" />
               <span className="pl-1 text-white font-semibold leading-6">
                 Legendary
               </span>

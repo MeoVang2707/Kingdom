@@ -3,6 +3,7 @@ import Select, { Option, SelectProps as SelectPropsDefault } from 'rc-select';
 import './index.scss';
 import 'rc-select/assets/index.less';
 import React, { useEffect, useState } from 'react';
+import Icon from '../Icon';
 
 export interface OptionSelect {
   value: string | number;
@@ -18,11 +19,21 @@ interface SelectProps {
   direction?: 'ltr' | 'rtl';
   dropdownRender?: any;
   open?: boolean;
+  onChange?: (val: string) => void;
+  defaultValue?: string;
+  value?: string;
 }
 
 const RCSelect = React.forwardRef(
-  (props: SelectProps & SelectPropsDefault, ref: any) => {
-    const { options = [], className, classNameDropdown, icon, ...rest } = props;
+  (props: SelectProps, ref: any) => {
+    const {
+      options = [],
+      className,
+      classNameDropdown,
+      icon,
+      onChange,
+      ...rest
+    } = props;
 
     const { state, setFalse, setTrue } = useBoolean(false);
     const [val, setVal] = useState(rest.value);
@@ -31,11 +42,9 @@ const RCSelect = React.forwardRef(
       setVal(rest.value);
     }, [rest.value]);
 
-    const onChange = (newVal: SelectPropsDefault['value']) => {
-      // console.log('aaaaaaa', a);
-      setVal(newVal);
-
-      // onChange()
+    const handleChange = (newVal: SelectPropsDefault['value']) => {
+      setVal(newVal as string);
+      onChange?.(newVal as string);
     };
 
     const divRef: any = useClickAway(() => {
@@ -43,13 +52,13 @@ const RCSelect = React.forwardRef(
     });
 
     const renderInputIcon = () => {
-      let src: string = '/assets/images/arrow_down.svg';
+      let src: string = 'arrow_down';
 
       if (val) {
-        src = '/assets/images/arrow_down_white.svg';
+        src = 'arrow_down_white';
       }
 
-      return <img src={src} alt="" />;
+      return <Icon name={src} />;
     };
 
     return (
@@ -67,7 +76,7 @@ const RCSelect = React.forwardRef(
           onClick={setTrue}
           animation="slide-up"
           showArrow
-          onChange={onChange}
+          onChange={handleChange}
           // open
           {...rest}
         >

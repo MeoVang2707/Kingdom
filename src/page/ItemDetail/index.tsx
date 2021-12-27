@@ -6,6 +6,7 @@ import About from './About';
 import SaleHistory from './SaleHistory';
 import SellBuy from './SellBuy';
 import Stats from './Stats';
+import Icon from 'src/component/Icon';
 
 interface ItemDetailProps {
   isInventory?: boolean;
@@ -37,9 +38,9 @@ export default function ItemDetail({ isInventory }: ItemDetailProps) {
 
       <div className="flex justify-between mt-6">
         <div>
-          <img
-            alt="chracter"
-            src="/assets/images/char/char1.png"
+          <Icon
+            name="/char/char1"
+            type="png"
             className="w-25rem max-w-25"
           />
         </div>

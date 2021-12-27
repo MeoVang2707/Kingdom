@@ -1,3 +1,5 @@
+import Icon from 'src/component/Icon';
+
 export default function SaleHistory() {
   return (
     <div>
@@ -49,14 +51,12 @@ export default function SaleHistory() {
                     10
                   </div>
 
-                  <img
-                    alt="logo"
-                    src="/assets/images/bnb.svg"
+                  <Icon
+                    name="bnb"
                     width={28}
                     height={28}
                     className="ml-1 mr-2"
                   />
-
                   <div className="text-white text-sm leading-5">$1,200</div>
                 </div>
 

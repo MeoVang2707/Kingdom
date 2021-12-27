@@ -9,8 +9,24 @@ export type MainObject =
   | MainObjectEnum.SHIP
   | MainObjectEnum.ACCESSORY;
 
-export enum MainObjectLabel {
-  CHARACTER = 'Character',
-  SHIP = 'Ship',
-  ACCESSORY = 'Accessory',
+export enum FilterValueEnum {
+  ALL = 'all',
+  SALE = 'sale',
+  NOTSALE = 'notSale',
 }
+
+export type FilterValue =
+  | FilterValueEnum.ALL
+  | FilterValueEnum.SALE
+  | FilterValueEnum.NOTSALE;
+
+  export enum SortValueEnum {
+    LOWEST = 'lowest',
+    HIGHEST = 'highest',
+    LASTEST = 'lastet',
+  }
+  
+  export type SortValue =
+    | SortValueEnum.LOWEST
+    | SortValueEnum.HIGHEST
+    | SortValueEnum.LASTEST;

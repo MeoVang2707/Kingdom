@@ -1,5 +1,6 @@
 import Tab from './OneTab';
-import { MainObject, MainObjectEnum, MainObjectLabel } from 'src/constant/Type';
+import { MainObject, MainObjectEnum } from 'src/constant/Type';
+import { MainObjectLabel } from 'src/constant';
 
 export const tabs = [
   {

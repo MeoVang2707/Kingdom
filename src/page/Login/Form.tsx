@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import Button from 'src/component/Button';
+import Icon from 'src/component/Icon';
 import Input from 'src/component/Input';
 import { handleChangeField } from 'src/state/reducer/auth';
 
@@ -10,6 +11,7 @@ export default function Form() {
   const history = useHistory();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [messageError, setMessageError] = useState('');
   const onChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
@@ -19,24 +21,30 @@ export default function Form() {
   };
 
   const handleLogin = () => {
-    dispatch(
-      handleChangeField({
-        userInfor: {
-          name: 'string',
-          email: 'string',
-          address: 'string@gmail.com',
-          balance: 1000,
-        },
-      }),
-    );
+    const res = true;
+    if (res) {
+      dispatch(
+        handleChangeField({
+          userInfor: {
+            name: 'string',
+            email: 'string',
+            address: 'string@gmail.com',
+            balance: 1000,
+          },
+        }),
+      );
 
-    history.push('/');
+      history.push('/');
+    } else {
+      // const message = 'This email address is not being verified.';
+      setMessageError('Wrong username or password. Please try again!');
+    }
   };
 
   return (
     <div className="mx-auto p-4 pb-6 border border-accent-500 rounded-lg">
       <div className="flex justify-center items-center">
-        <img alt="gmail" src="/assets/images/gmail.svg" />
+        <Icon name="gmail" />
         <div className="pl-2 text-accent-500 font-bold">Log in with Email</div>
       </div>
 
@@ -60,9 +68,7 @@ export default function Form() {
         </div>
       </div>
 
-      <div className="my-4 text-warning-500 text-center">
-        Wrong username or password. Please try again!
-      </div>
+      <div className="my-4 text-warning-500 text-center">{messageError}</div>
 
       <Button
         className="w-full"

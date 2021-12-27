@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from 'src/component/Button';
+import Icon from 'src/component/Icon';
 
 interface MenuProps {}
 
@@ -22,7 +23,7 @@ const Menu = (props: MenuProps) => {
       </div>
       <div className="flex justify-center">
         <Button
-          icon={<img alt="icon" src="/assets/images/qr.svg" />}
+          icon={<Icon name="qr" />}
           variant="outline"
         >
           Show QR
