@@ -6,8 +6,6 @@ const Navigation = () => {
   const [activeKey, setActiveKey] = useState('');
 
   const { pathname } = useLocation();
-  console.log('pathname', pathname);
-  console.log('activeKey', activeKey);
 
   const menus: any[] = [
     { label: 'Metrics', path: '/', keys: [''] },
@@ -35,7 +33,7 @@ const Navigation = () => {
           <Link
             key={menu.label}
             className={`font-bold ml-8 ${
-              isActive >= 0 ? 'text-accent-500' : ''
+              isActive >= 0 ? 'text-accent-500' : 'hover:text-white'
             }`}
             to={menu.path}
           >

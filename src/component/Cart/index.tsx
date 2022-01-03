@@ -9,7 +9,7 @@ export default function Cart() {
 
       <div className="absolute bottom-4 w-full left-0 flex justify-center">
         <div className="flex items-center">
-          <span className="pr-0.5 text-2xl text-accent-500">0.5</span>
+          <span className="pr-0.5 text-2xl text-accent-500 font-bold">0.5</span>
           <div>
             <Icon name="bnb" />
           </div>

@@ -62,6 +62,8 @@ function Modal(props: ModalProps, ref: any) {
         backgroundColor: '#1d1d25',
         opacity: 0.7,
       }}
+      animation="zoom"
+      wrapClassName="center"
       {...rest}
     >
       {renderTitle()}

@@ -36,9 +36,7 @@ export default function Stats({ type }: StatsProps) {
               </div>
               <div className="flex items-center">
                 <Icon name={item.img} alt="icon" />
-                <span className="ml-1 text-white text-xs font-semibold">
-                  100
-                </span>
+                <span className="ml-1 text-white font-semibold">100</span>
               </div>
             </div>
           );

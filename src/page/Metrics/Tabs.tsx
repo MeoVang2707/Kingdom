@@ -20,7 +20,7 @@ export default function Tabs({ selected, onChangeTab }: TabsProps) {
         return (
           <div
             key={item.title}
-            className={`px-4 py-1 cursor-pointer rounded-lg text-sm font-bold ${
+            className={`px-4 py-1 cursor-pointer rounded-lg text-sm font-bold hover:text-white ${
               selected === item.value
                 ? 'text-white bg-accent-500'
                 : 'text-primary-100'

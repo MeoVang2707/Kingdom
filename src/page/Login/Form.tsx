@@ -64,11 +64,13 @@ export default function Form() {
         />
 
         <div className="text-right text-accent-500 text-xs mt-2 cursor-pointer">
-          Forget password?
+          Forgot password?
         </div>
       </div>
 
-      <div className="my-4 text-warning-500 text-center">{messageError}</div>
+      <div className="my-4 text-warning-500 text-center h-5.5">
+        {messageError}
+      </div>
 
       <Button
         className="w-full"

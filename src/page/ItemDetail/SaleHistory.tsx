@@ -57,7 +57,7 @@ export default function SaleHistory() {
                     height={28}
                     className="ml-1 mr-2"
                   />
-                  <div className="text-white text-sm leading-5">$1,200</div>
+                  <div className="text-white text-xs leading-5">$1,200</div>
                 </div>
 
                 <div className="text-right text-primary-100 text-xs leading-5">

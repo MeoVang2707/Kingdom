@@ -25,23 +25,23 @@ export default function ItemDetail({ isInventory }: ItemDetailProps) {
   };
 
   return (
-    <div className="pt-8 pb-12 px-52">
+    <div className="pt-8 pb-12 px-4 max-w-screen-lg mx-auto">
       <div className="cursor-pointer" onClick={handleClickBack}>
         <ArrowLeft fontSize="40px" />
       </div>
 
       <div className="flex mt-2">
-        <div className="text-white font-semibold text-xs bg-accent-500 flex items-center rounded px-1">
+        <div className="text-white font-semibold bg-accent-500 flex items-center rounded px-1">
           #62354876
         </div>
       </div>
 
-      <div className="flex justify-between mt-6">
+      <div className="flex justify-between mt-6 flex-wrap">
         <div>
           <Icon name="/char/char1" type="png" className="w-25rem max-w-25" />
         </div>
 
-        <div className="pl-7.5rem" style={{ flexGrow: 1 }}>
+        <div className="lg:w-1/2 grow lg:grow-0">
           <SellBuy isSell={!!isInventory} />
 
           <div className="mt-8">

@@ -1,11 +1,13 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Checkbox from 'src/component/Checkbox';
+import RadioButton from 'src/component/RadioButton';
 import Icon from 'src/component/Icon';
 import RangeSlider from 'src/component/RangeSlider';
 import { MainObject, MainObjectEnum } from 'src/constant/Type';
 import { handleChangeField } from 'src/state/reducer/marketplace';
 import { RootState } from 'src/state/store';
+import './style.scss';
 
 interface MenuProps {
   selected: MainObject;
@@ -167,7 +169,7 @@ const Menu = ({ selected }: MenuProps) => {
   const filterLength = Object.keys(filters).length;
 
   return (
-    <div className="h-full bg-primary-300 p-4 w-64 rounded-lg">
+    <div className="h-full bg-primary-300 p-4 w-64 rounded-lg overflow-y-auto marketplace-left-menu-container">
       <div className="flex items-center justify-between">
         <div className="flex items-center">
           <Icon name="filter" type="png" />
@@ -177,7 +179,11 @@ const Menu = ({ selected }: MenuProps) => {
         </div>
 
         <div
-          className="text-sm cursor-pointer text-accent-500 font-semibold"
+          className={`text-sm font-semibold ${
+            filterLength === 0
+              ? 'text-primary-100'
+              : 'cursor-pointer text-accent-500'
+          }`}
           onClick={onClickFilter}
         >
           Clear filter
@@ -193,12 +199,23 @@ const Menu = ({ selected }: MenuProps) => {
               </div>
 
               {item.filters.map((item2) => {
+                const showRadio = ['buff', 'stat'].includes(item.value);
                 return (
                   <div className="mt-2 flex items-center" key={item2.name}>
-                    <Checkbox
-                      selected={filters[item.value] === item2.value}
-                      onClick={onClickCheckBox(item.value, item2.value)}
-                    />
+                    {!showRadio && (
+                      <Checkbox
+                        selected={filters[item.value] === item2.value}
+                        onClick={onClickCheckBox(item.value, item2.value)}
+                      />
+                    )}
+
+                    {showRadio && (
+                      <RadioButton
+                        selected={filters[item.value] === item2.value}
+                        onClick={onClickCheckBox(item.value, item2.value)}
+                      />
+                    )}
+
                     <Icon className="ml-2" name={item2.logo} />
                     <div className="ml-1 text-white font-bold">
                       {item2.name}

@@ -10,16 +10,19 @@ interface PaginationProps {
   pageSize: number;
   onChange: (page: number, pageSize: number) => void;
   className?: string;
+  scrollOnChangePage?: boolean;
 }
 
 export default function PaginationPage(props: PaginationProps) {
-  const { total, pageSize, className, onChange } = props;
+  const { total, pageSize, className, onChange, scrollOnChangePage } = props;
   const [val, setVal] = useState(1);
 
   const handleChangePage = (page: number, pageSize: number) => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
     onChange(page, pageSize);
     setVal(page);
+    if (scrollOnChangePage) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   return (

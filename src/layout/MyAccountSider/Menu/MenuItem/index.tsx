@@ -26,10 +26,10 @@ const MenuItem = ({ item, onSelect, activeKey, className }: MenuItemProps) => {
     <div
       className={`${
         isActiveKey ? 'bg-accent-500 text-white' : 'text-primary-100'
-      } p-2 rounded-lg flex items-center cursor-pointer ${className}`}
+      } p-2 rounded-lg flex items-center cursor-pointer hover:text-white ${className}`}
       onClick={handleClick}
     >
-      <Icon fill={isActiveKey ? '#ffffff' : '#868790'} />
+      <Icon />
       <span className="pl-2 font-semibold leading-6">{item.title}</span>
     </div>
   );
