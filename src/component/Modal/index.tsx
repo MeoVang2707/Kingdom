@@ -41,7 +41,7 @@ function Modal(props: ModalProps, ref: any) {
   }));
 
   const renderTitle = () => {
-    return <div className="text-center text-2xl text-accent-500">{title}</div>;
+    return <div className="text-center text-2xl text-accent-500 font-bold">{title}</div>;
   };
 
   const renderCloseIcon = (): React.ReactNode => {

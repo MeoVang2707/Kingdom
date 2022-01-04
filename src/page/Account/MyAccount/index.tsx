@@ -3,10 +3,12 @@ import Activities from './Activities';
 
 export default function MyAccount() {
   return (
-    <div className="max-w-59rem w-full pl-32">
+    <div className="w-full px-4">
+    <div className="max-w-59rem mx-auto">
       <Wallet />
 
       <Activities />
+    </div>
     </div>
   );
 }

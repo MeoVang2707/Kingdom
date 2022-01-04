@@ -1,7 +1,7 @@
 import ArrowLeft from 'src/component/Icon/Pagination/ArrowLeft';
 import PaginationPage from 'src/component/Pagination';
 import { MainObject, MainObjectEnum } from 'src/constant/Type';
-import { useHistory, useParams } from 'react-router';
+import { Redirect, useHistory, useParams } from 'react-router';
 import About from './About';
 import SaleHistory from './SaleHistory';
 import SellBuy from './SellBuy';
@@ -23,6 +23,16 @@ export default function ItemDetail({ isInventory }: ItemDetailProps) {
   const handleClickBack = () => {
     history.goBack();
   };
+
+  if (
+    ![
+      MainObjectEnum.ACCESSORY,
+      MainObjectEnum.CHARACTER,
+      MainObjectEnum.SHIP,
+    ].includes(type)
+  ) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <div className="pt-8 pb-12 px-4 max-w-screen-lg mx-auto">

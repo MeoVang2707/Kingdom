@@ -22,10 +22,16 @@ const MenuItem = ({ item, onSelect, activeKey, className }: MenuItemProps) => {
 
   const Icon = item.icon;
 
+  if (item.key === MenuAccountSider.ACCOUNT) {
+    console.log('aaaaaaaa', isActiveKey);
+  }
+
   return (
     <div
       className={`${
-        isActiveKey ? 'bg-accent-500 text-white' : 'text-primary-100'
+        isActiveKey
+          ? 'bg-accent-500 text-white hover:bg-accent-600'
+          : 'text-primary-100'
       } p-2 rounded-lg flex items-center cursor-pointer hover:text-white ${className}`}
       onClick={handleClick}
     >

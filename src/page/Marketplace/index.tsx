@@ -40,7 +40,7 @@ const Marketplace = (props: MarketplaceProps) => {
           <LeftMenu selected={selectedTag} />
         </div>
 
-        <div className="px-4 ml-64 grow">
+        <div className="pl-4 ml-64 grow">
           <div>
             <Filters
               handleChangeFilter={handleChangeFilterPrice}

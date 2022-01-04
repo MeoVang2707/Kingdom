@@ -1,6 +1,6 @@
 // import { useWallet } from "@/utils/hooks/connect/wallet";
-import React from 'react';
-import { useLocation } from 'react-router';
+import React, { useEffect } from 'react';
+import { useHistory, useLocation } from 'react-router';
 import Icon from 'src/component/Icon';
 import AccountIcon from 'src/component/Icon/Account';
 import ActivityIcon from 'src/component/Icon/Activity';
@@ -56,28 +56,21 @@ const menus: any[] = [
 
 const Menu = (props: MenuProps) => {
   const { pathname } = useLocation();
-  // const history = useHistory();
+  const history = useHistory();
   // const wallet = useWallet();
 
   const [activeKey, setActiveKey] = React.useState<MenuAccountSider>(
-    MenuAccountSider.ACCOUNT,
+    (pathname.split('/')?.[2] || MenuAccountSider.ACCOUNT) as MenuAccountSider,
   );
-
-  React.useEffect(() => {
-    const splitPath: string[] = pathname.split('/');
-    const getPath: string = splitPath?.[2];
-
-    setActiveKey((getPath as MenuAccountSider) || MenuAccountSider.ACCOUNT);
-  }, [pathname]);
 
   const onSelect = (newActiveKey: MenuAccountSider) => {
     setActiveKey(newActiveKey);
   };
 
-  // const handleDisconnect = () => {
-  //   wallet.disconnectWallet();
-  //   history.push("/");
-  // };
+  const handleDisconnect = () => {
+    // wallet.disconnectWallet();
+    history.push('/');
+  };
 
   return (
     <div
@@ -100,7 +93,7 @@ const Menu = (props: MenuProps) => {
         </div>
       </div>
 
-      <div className="flex cursor-pointer">
+      <div className="flex cursor-pointer" onClick={handleDisconnect}>
         <Icon name="logout" />
         <span className="text-warning-500 leading-6 font-semibold pl-2">
           Log out

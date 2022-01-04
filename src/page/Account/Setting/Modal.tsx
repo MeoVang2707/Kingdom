@@ -149,17 +149,18 @@ export const ModalChangePassword = ({
           type="password"
         />
         <div
-          className="text-right text-accent-500 font-semibold text-xs leading-5 cursor-pointer mt-2"
+          className="text-right text-accent-500 font-semibold text-xs leading-5 cursor-pointer mt-2 hover:text-accent-600"
           onClick={onForgotPass}
         >
-          Forget password?
+          Forgot password?
         </div>
         <Input
-          classNameInput="w-full mt-4"
+          classNameInput="w-full"
           placeholder="Password"
           value={pass}
           onChange={onChangePass}
           type="password"
+          className="mt-4"
         />
 
         <Input

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Checkbox from 'src/component/Checkbox';
 import RadioButton from 'src/component/RadioButton';
@@ -151,11 +151,8 @@ const Menu = ({ selected }: MenuProps) => {
     dispatch(handleChangeField({ filters: {} }));
   };
 
-  const onClickCheckBox =
+  const onClickRadioButton =
     (name: string, name2: string) => (checked: boolean) => {
-      // if(checked){
-      //   if(filters)
-      // }
       if (checked) {
         dispatch(handleChangeField({ filters: { ...filters, [name]: name2 } }));
       } else {
@@ -166,7 +163,46 @@ const Menu = ({ selected }: MenuProps) => {
       }
     };
 
-  const filterLength = Object.keys(filters).length;
+  const onClickCheckBox =
+    (name: string, name2: string) => (checked: boolean) => {
+      const oldFilter = (filters[name] || []) as string[];
+      if (checked) {
+        dispatch(
+          handleChangeField({
+            filters: { ...filters, [name]: [...oldFilter, name2] },
+          }),
+        );
+      } else {
+        if (oldFilter.length === 1) {
+          const newFilters = { ...filters };
+          delete newFilters[name];
+          return dispatch(handleChangeField({ filters: newFilters }));
+        }
+        dispatch(
+          handleChangeField({
+            filters: {
+              ...filters,
+              [name]: oldFilter.filter((item) => item !== name2),
+            },
+          }),
+        );
+      }
+    };
+
+  const filterLength: number = useMemo(() => {
+    let result = 0;
+    Object.values(filters).forEach((item) => {
+      if (typeof item === 'string') {
+        result += 1;
+      } else {
+        result += item.length;
+      }
+    });
+
+    return result;
+  }, [filters]);
+
+  console.log('filters', filters);
 
   return (
     <div className="h-full bg-primary-300 p-4 w-64 rounded-lg overflow-y-auto marketplace-left-menu-container">
@@ -182,7 +218,7 @@ const Menu = ({ selected }: MenuProps) => {
           className={`text-sm font-semibold ${
             filterLength === 0
               ? 'text-primary-100'
-              : 'cursor-pointer text-accent-500'
+              : 'cursor-pointer text-accent-500 hover:text-accent-600'
           }`}
           onClick={onClickFilter}
         >
@@ -204,7 +240,7 @@ const Menu = ({ selected }: MenuProps) => {
                   <div className="mt-2 flex items-center" key={item2.name}>
                     {!showRadio && (
                       <Checkbox
-                        selected={filters[item.value] === item2.value}
+                        selected={filters[item.value]?.includes(item2.value)}
                         onClick={onClickCheckBox(item.value, item2.value)}
                       />
                     )}
@@ -212,7 +248,7 @@ const Menu = ({ selected }: MenuProps) => {
                     {showRadio && (
                       <RadioButton
                         selected={filters[item.value] === item2.value}
-                        onClick={onClickCheckBox(item.value, item2.value)}
+                        onClick={onClickRadioButton(item.value, item2.value)}
                       />
                     )}
 

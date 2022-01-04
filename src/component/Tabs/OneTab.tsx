@@ -1,5 +1,3 @@
-import Icon from '../Icon';
-
 interface OneTabProps {
   title: string;
   logo: React.ReactNode;
@@ -13,7 +11,7 @@ export default function OneTab(props: OneTabProps) {
     <div
       className={`cursor-pointer flex flex-col justify-between ${
         props.isSelected
-          ? 'text-accent-500 '
+          ? 'text-accent-500 hover:text-accent-600'
           : 'text-primary-100 hover:text-white'
       } ${props.className}`}
       onClick={props.onClick}
@@ -24,9 +22,7 @@ export default function OneTab(props: OneTabProps) {
         <div className={`font-bold pl-2 `}>{props.title}</div>
       </div>
       <div
-        className={`h-3px rounded-lg ${
-          props.isSelected ? 'bg-accent-500 ' : 'bg-current'
-        }`}
+        className={`h-3px rounded-lg bg-current`}
       />
     </div>
   );

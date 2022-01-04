@@ -1,9 +1,17 @@
+import { useHistory } from 'react-router';
 import Icon from '../Icon';
 import './style.scss';
+
 export default function Cart() {
+  const history = useHistory();
+  const onClick = () => {
+    history.push(`/character/${Math.random()}`);
+  };
+
   return (
     <div
       className={`cartCharacter relative flex flex-col items-center bg-primary-300 rounded-lg cursor-pointer hover:border-2 hover:border-accent-500`}
+      onClick={onClick}
     >
       <Icon name="char/char1" type="png" className="m-6 mb-4" />
 

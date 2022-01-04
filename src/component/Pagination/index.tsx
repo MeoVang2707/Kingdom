@@ -35,6 +35,7 @@ export default function PaginationPage(props: PaginationProps) {
       nextIcon={
         <ArrowRight fill={val * pageSize >= total ? '#868790' : '#E9992A'} />
       }
+      showTitle={false}
     />
   );
 }
