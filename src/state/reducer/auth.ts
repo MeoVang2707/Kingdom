@@ -1,16 +1,28 @@
-import { createAction, createSlice } from '@reduxjs/toolkit';
+import { createAction, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import authService from 'src/apis/auth';
+import { UserInfo } from 'src/constant/Type/user';
+import { formatWalletAddress } from 'src/utils/normalizers';
+
+const infoCache = localStorage.getItem('@SAM');
+
+let initialInfo;
+if (infoCache) {
+  initialInfo = JSON.parse(infoCache);
+}
 
 interface AuthType {
-  userInfor?: {
-    name: string;
-    email?: string;
+  userInfor?: UserInfo;
+  walletInfo: {
+    formattedAddress: string;
     address: string;
-    balance: number;
   };
 }
 
 const initialState: AuthType = {
-  // userInfor: null,
+  walletInfo: {
+    formattedAddress: initialInfo?.formattedAddress,
+    address: initialInfo?.address,
+  },
 };
 
 export const handleChangeField = createAction<Partial<AuthType>>(
@@ -21,8 +33,32 @@ export const slice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    updateTab: (state, action) => {
-      state.userInfor = action.payload;
+    logout: (state) => {
+      authService.logout();
+      localStorage.removeItem('@SAM');
+      state.userInfor = undefined;
+      state.walletInfo = {
+        formattedAddress: '',
+        address: '',
+      };
+    },
+    disConnectWallet: (state) => {
+      localStorage.removeItem('@SAM');
+      state.walletInfo = {
+        formattedAddress: '',
+        address: '',
+      };
+    },
+    updateWalletInforByAddress: (state, action: PayloadAction<string>) => {
+      const address = action.payload;
+      const formattedAddress = formatWalletAddress(address);
+      const walletInfo = {
+        address,
+        formattedAddress,
+      };
+      localStorage.setItem('@SAM', JSON.stringify(walletInfo));
+
+      state.walletInfo = walletInfo;
     },
   },
   extraReducers: (builder) => {
@@ -35,4 +71,5 @@ export const slice = createSlice({
 const reducer = slice.reducer;
 export default reducer;
 
-export const { updateTab } = slice.actions;
+export const { updateWalletInforByAddress, logout, disConnectWallet } =
+  slice.actions;

@@ -26,10 +26,10 @@ export default function Form() {
       dispatch(
         handleChangeField({
           userInfor: {
-            name: 'string',
+            username: 'string',
             email: 'string',
             address: 'string@gmail.com',
-            balance: 1000,
+            createdDate: ''
           },
         }),
       );

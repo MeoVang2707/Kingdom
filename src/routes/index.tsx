@@ -31,27 +31,23 @@ const routesConfig: RouteProps[] = [
   {
     exact: true,
     path: '/',
-    guard: AuthGuard,
     layout: MainLayout,
     component: Metrics,
   },
   {
     exact: true,
     path: '/login',
-    guard: AuthGuard,
     layout: MainLayout,
     component: Login,
   },
   {
     exact: true,
     path: '/marketplace',
-    guard: AuthGuard,
     layout: MainLayout,
     component: Marketplace,
   },
   {
     path: '/account',
-    // guard: AuthGuard,
     layout: MainLayout,
     component: MyAccountSider,
     routes: [
@@ -65,14 +61,14 @@ const routesConfig: RouteProps[] = [
       {
         exact: true,
         path: '/account/activity',
-        // guard: AuthGuard,
+        guard: AuthGuard,
         layout: MyAccountLayout,
         component: Activity,
       },
       {
         exact: true,
         path: '/account/inventory',
-        // guard: AuthGuard,
+        guard: AuthGuard,
         layout: MyAccountLayout,
         component: Inventory,
       },

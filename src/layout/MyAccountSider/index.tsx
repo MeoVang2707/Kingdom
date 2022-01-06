@@ -1,4 +1,4 @@
-// import { useIsConnected } from '@/utils/hooks/connect/wallet';
+// import { useIsConnected } from 'src/utils/hooks/connect/wallet';
 import React from 'react';
 import Menu from './Menu';
 

@@ -1,4 +1,4 @@
-// import { useWallet } from "@/utils/hooks/connect/wallet";
+// import { useWallet } from "src/utils/hooks/connect/wallet";
 import React, { useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router';
 import Icon from 'src/component/Icon';

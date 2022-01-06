@@ -1,5 +1,5 @@
 import MainTab from 'src/component/Tabs/MainTab';
-// import Tab from '@/layouts/MainLayout/TabHeader/Tab';
+// import Tab from 'src/layouts/MainLayout/TabHeader/Tab';
 import { useState } from 'react';
 import { MainObject, MainObjectEnum } from 'src/constant/Type';
 import Item from './Item';

@@ -203,7 +203,7 @@ export const ModalForgot = ({
   return (
     <ModalInfo
       type="confirm"
-      title="Forget password?"
+      title="Forgot password?"
       message="We will email you a link to reset your password."
       buttonName="Email me"
       onClickButton={onClickButton}

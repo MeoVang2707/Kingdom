@@ -1,6 +1,8 @@
+import { useSelector } from 'react-redux';
 import Button from 'src/component/Button';
 import ContainerBoder from 'src/component/ContainerBorder';
 import Icon from 'src/component/Icon';
+import { RootState } from 'src/state/store';
 import OneItem from './Item';
 
 const items1 = [
@@ -30,6 +32,7 @@ const items2 = [
 ];
 
 export default function Wallet() {
+  const walletInfo = useSelector((state: RootState) => state.auth.walletInfo);
   return (
     <div>
       <div className="text-primary-100 font-semibold leading-8 text-2xl">
@@ -39,7 +42,7 @@ export default function Wallet() {
         <ContainerBoder className="w-23rem flex flex-col-reverse justify-between">
           <div className="py-2 pr-2 pl-6 flex justify-between">
             <div className="text-white">
-              MetaMask Address: 0x9nq30....x2609nt
+              MetaMask Address: {walletInfo.formattedAddress}
             </div>
 
             <Icon name="copy" className="cursor-pointer" />
@@ -56,9 +59,7 @@ export default function Wallet() {
                 </div>
                 <Icon name="bnb" width={38} height={38} />
               </div>
-              <div className="text-white pt-2 leading-6">
-                $1,200
-              </div>
+              <div className="text-white pt-2 leading-6">$1,200</div>
             </div>
 
             <div className="grid grid-cols-2 gap-4">

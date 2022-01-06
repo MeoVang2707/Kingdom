@@ -1,10 +1,13 @@
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
 import Button from 'src/component/Button';
 import Icon from 'src/component/Icon';
-import React from 'react';
-import { useHistory } from 'react-router';
+import { RootState } from 'src/state/store';
 
 const WalletInfo = () => {
   const history = useHistory();
+  const walletInfo = useSelector((state: RootState) => state.auth.walletInfo);
 
   const changeToAccount = () => {
     history.push('/account');
@@ -16,7 +19,7 @@ const WalletInfo = () => {
         <Icon name="metamask" type="png" />
         <div className="pl-2 text-xs">
           <div className="font-semibold text-white">100 BNB</div>
-          <div className="text-primary-100">0x9nq30....x2609nt</div>
+          <div className="text-primary-100">{walletInfo.formattedAddress}</div>
         </div>
       </div>
 
