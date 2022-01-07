@@ -1,6 +1,7 @@
 import Button from 'src/component/Button';
 import { useState } from 'react';
 import Form from './Form';
+import Icon from 'src/component/Icon';
 
 const MarketPlaceDetail = () => {
   const [isShowForm, setIsShowForm] = useState(false);
@@ -19,7 +20,7 @@ const MarketPlaceDetail = () => {
           <Button
             variant="fulfill"
             className="mt-6 w-full"
-            icon={<img alt="metamask" src="/assets/images/metamask.png" />}
+            icon={<Icon name="metamask" type="png" />}
           >
             Log in with Meta Mask
           </Button>
@@ -29,7 +30,7 @@ const MarketPlaceDetail = () => {
           <Button
             variant="outline"
             className="mt-4 w-full"
-            icon={<img alt="gmail" src="/assets/images/gmail.svg" />}
+            icon={<Icon name="gmail" />}
             onClick={showLoginForm}
           >
             Log in with Email

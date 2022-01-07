@@ -56,7 +56,7 @@ export default function Wallet() {
                 </div>
                 <Icon name="bnb" width={38} height={38} />
               </div>
-              <div className="text-white pt-2 leading-6 font-semibold">
+              <div className="text-white pt-2 leading-6">
                 $1,200
               </div>
             </div>

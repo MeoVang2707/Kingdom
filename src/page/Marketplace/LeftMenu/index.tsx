@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Checkbox from 'src/component/Checkbox';
+import RadioButton from 'src/component/RadioButton';
+import Icon from 'src/component/Icon';
 import RangeSlider from 'src/component/RangeSlider';
 import { MainObject, MainObjectEnum } from 'src/constant/Type';
+import { handleChangeField } from 'src/state/reducer/marketplace';
+import { RootState } from 'src/state/store';
+import './style.scss';
 
 interface MenuProps {
   selected: MainObject;
@@ -14,20 +20,21 @@ export enum MenuSider {
 
 const ClassFilter = {
   title: 'CLASS',
+  value: 'class',
   filters: [
     {
       name: 'Warrior',
-      logo: '/assets/images/warrrior.svg',
+      logo: 'warrrior',
       value: 'warrior',
     },
     {
       name: 'Mage',
-      logo: '/assets/images/mage.svg',
+      logo: 'mage',
       value: 'mage',
     },
     {
       name: 'Assasin',
-      logo: '/assets/images/assasin.svg',
+      logo: 'assasin',
       value: 'assasin',
     },
   ],
@@ -35,25 +42,26 @@ const ClassFilter = {
 
 const RarityFilter = {
   title: 'RARITY',
+  value: 'rarity',
   filters: [
     {
       name: 'Legendary',
-      logo: '/assets/images/RarityLegend.svg',
+      logo: 'RarityLegend',
       value: 'legendary',
     },
     {
       name: 'Epic',
-      logo: '/assets/images/RarityEpic.svg',
+      logo: 'RarityEpic',
       value: 'epic',
     },
     {
       name: 'Rare',
-      logo: '/assets/images/RarityRare.svg',
-      value: 'legendary',
+      logo: 'RarityRare',
+      value: 'rare',
     },
     {
       name: 'Common',
-      logo: '/assets/images/RarityCommon.svg',
+      logo: 'RarityCommon',
       value: 'common',
     },
   ],
@@ -61,25 +69,26 @@ const RarityFilter = {
 
 const BuffFilter = {
   title: 'BUFF AMOUNT',
+  value: 'buff',
   filters: [
     {
       name: '0 buff',
-      logo: '/assets/images/token.svg',
+      logo: 'token',
       value: '0',
     },
     {
       name: '1 buff',
-      logo: '/assets/images/token.svg',
+      logo: 'token',
       value: '1',
     },
     {
       name: '2 buffs',
-      logo: '/assets/images/token.svg',
+      logo: 'token',
       value: '2',
     },
     {
       name: '3 buffs',
-      logo: '/assets/images/token.svg',
+      logo: 'token',
       value: '3',
     },
   ],
@@ -87,15 +96,16 @@ const BuffFilter = {
 
 const StatFilter = {
   title: 'STAT',
+  value: 'stat',
   filters: [
     {
       name: 'Stat 1',
-      logo: '/assets/images/token.svg',
+      logo: 'token',
       value: '1',
     },
     {
       name: 'Stat 2',
-      logo: '/assets/images/token.svg',
+      logo: 'token',
       value: '2',
     },
   ],
@@ -131,25 +141,93 @@ const filtersAccessory = [
 ];
 
 const Menu = ({ selected }: MenuProps) => {
-  const filters = filtersByObject[selected] || filtersByObject['character'];
+  const dispatch = useDispatch();
+  const filtersMap =
+    filtersByObject[selected] || filtersByObject[MainObjectEnum.CHARACTER];
+
+  const { filters } = useSelector((state: RootState) => state.marketplace);
+
+  const onClickFilter = () => {
+    dispatch(handleChangeField({ filters: {} }));
+  };
+
+  const onClickRadioButton =
+    (name: string, name2: string) => (checked: boolean) => {
+      if (checked) {
+        dispatch(handleChangeField({ filters: { ...filters, [name]: name2 } }));
+      } else {
+        const newFilters = { ...filters };
+        delete newFilters[name];
+
+        dispatch(handleChangeField({ filters: newFilters }));
+      }
+    };
+
+  const onClickCheckBox =
+    (name: string, name2: string) => (checked: boolean) => {
+      const oldFilter = (filters[name] || []) as string[];
+      if (checked) {
+        dispatch(
+          handleChangeField({
+            filters: { ...filters, [name]: [...oldFilter, name2] },
+          }),
+        );
+      } else {
+        if (oldFilter.length === 1) {
+          const newFilters = { ...filters };
+          delete newFilters[name];
+          return dispatch(handleChangeField({ filters: newFilters }));
+        }
+        dispatch(
+          handleChangeField({
+            filters: {
+              ...filters,
+              [name]: oldFilter.filter((item) => item !== name2),
+            },
+          }),
+        );
+      }
+    };
+
+  const filterLength: number = useMemo(() => {
+    let result = 0;
+    Object.values(filters).forEach((item) => {
+      if (typeof item === 'string') {
+        result += 1;
+      } else {
+        result += item.length;
+      }
+    });
+
+    return result;
+  }, [filters]);
+
+  console.log('filters', filters);
 
   return (
-    <div className="h-full bg-primary-300 p-4 w-64 rounded-lg">
+    <div className="h-full bg-primary-300 p-4 w-64 rounded-lg overflow-y-auto marketplace-left-menu-container">
       <div className="flex items-center justify-between">
         <div className="flex items-center">
-          <img alt="filter" src="/assets/images/filter.png" />
+          <Icon name="filter" type="png" />
           <div className="text-white text-xl font-semibold pl-2">
-            Filter ({2})
+            Filter {filterLength > 0 && `(${filterLength})`}
           </div>
         </div>
 
-        <div className="text-sm cursor-pointer text-accent-500 font-semibold">
+        <div
+          className={`text-sm font-semibold ${
+            filterLength === 0
+              ? 'text-primary-100'
+              : 'cursor-pointer text-accent-500 hover:text-accent-600'
+          }`}
+          onClick={onClickFilter}
+        >
           Clear filter
         </div>
       </div>
 
       <div className="mt-8">
-        {filters.map((item) => {
+        {filtersMap.map((item) => {
           return (
             <div key={item.title} className="mb-6">
               <div className="text-xs text-accent-500 font-bold">
@@ -157,10 +235,24 @@ const Menu = ({ selected }: MenuProps) => {
               </div>
 
               {item.filters.map((item2) => {
+                const showRadio = ['buff', 'stat'].includes(item.value);
                 return (
                   <div className="mt-2 flex items-center" key={item2.name}>
-                    <Checkbox />
-                    <img className="ml-2" alt="logo" src={item2.logo} />
+                    {!showRadio && (
+                      <Checkbox
+                        selected={filters[item.value]?.includes(item2.value)}
+                        onClick={onClickCheckBox(item.value, item2.value)}
+                      />
+                    )}
+
+                    {showRadio && (
+                      <RadioButton
+                        selected={filters[item.value] === item2.value}
+                        onClick={onClickRadioButton(item.value, item2.value)}
+                      />
+                    )}
+
+                    <Icon className="ml-2" name={item2.logo} />
                     <div className="ml-1 text-white font-bold">
                       {item2.name}
                     </div>

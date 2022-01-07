@@ -35,7 +35,7 @@ const Header = () => {
         {userInfor ? (
           <WalletInfo />
         ) : (
-          <Button variant="outline" onClick={onClickLogin}>
+          <Button variant="fulfill" onClick={onClickLogin}>
             Login
           </Button>
         )}

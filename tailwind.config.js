@@ -16,12 +16,15 @@ module.exports = {
       },
       height: {
         '3px': '3px',
+        5.5: '1.375rem',
       },
       maxWidth: {
         16: '16rem',
         25: '25rem',
         '23rem': '23rem',
         '59rem': '59rem',
+        'screen-2xl': '1440px',
+        '91rem': '91rem',
       },
       fontSize: {
         xs: ['0.75rem', '1.25rem'],
@@ -37,10 +40,14 @@ module.exports = {
       width: {
         '25rem': '25rem',
         '23rem': '23rem',
+        '17rem': '17rem',
       },
       lineHeight: {
         5.5: '1.375rem',
         9.5: '2.375rem',
+      },
+      screens: {
+        '2xl': '1440px',
       },
     },
   },

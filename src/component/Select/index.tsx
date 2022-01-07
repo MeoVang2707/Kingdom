@@ -3,6 +3,7 @@ import Select, { Option, SelectProps as SelectPropsDefault } from 'rc-select';
 import './index.scss';
 import 'rc-select/assets/index.less';
 import React, { useEffect, useState } from 'react';
+import Icon from '../Icon';
 
 export interface OptionSelect {
   value: string | number;
@@ -18,73 +19,77 @@ interface SelectProps {
   direction?: 'ltr' | 'rtl';
   dropdownRender?: any;
   open?: boolean;
+  onChange?: (val: string) => void;
+  defaultValue?: string;
+  value?: string;
 }
 
-const RCSelect = React.forwardRef(
-  (props: SelectProps & SelectPropsDefault, ref: any) => {
-    const { options = [], className, classNameDropdown, icon, ...rest } = props;
+const RCSelect = React.forwardRef((props: SelectProps, ref: any) => {
+  const {
+    options = [],
+    className,
+    classNameDropdown,
+    icon,
+    onChange,
+    ...rest
+  } = props;
 
-    const { state, setFalse, setTrue } = useBoolean(false);
-    const [val, setVal] = useState(rest.value);
+  const { state, setFalse, setTrue } = useBoolean(false);
+  const [val, setVal] = useState(rest.value);
 
-    useEffect(() => {
-      setVal(rest.value);
-    }, [rest.value]);
+  useEffect(() => {
+    setVal(rest.value);
+  }, [rest.value]);
 
-    const onChange = (newVal: SelectPropsDefault['value']) => {
-      // console.log('aaaaaaa', a);
-      setVal(newVal);
+  const handleChange = (newVal: SelectPropsDefault['value']) => {
+    setVal(newVal as string);
+    onChange?.(newVal as string);
+  };
 
-      // onChange()
-    };
+  const divRef: any = useClickAway(() => {
+    if (state) setFalse();
+  });
 
-    const divRef: any = useClickAway(() => {
-      if (state) setFalse();
-    });
+  const renderInputIcon = () => {
+    let src: string = 'arrow_down';
 
-    const renderInputIcon = () => {
-      let src: string = '/assets/images/arrow_down.svg';
+    if (val) {
+      src = 'arrow_down_white';
+    }
 
-      if (val) {
-        src = '/assets/images/arrow_down_white.svg';
-      }
+    return <Icon name={src} />;
+  };
 
-      return <img src={src} alt="" />;
-    };
-
-    return (
-      <div ref={divRef}>
-        <Select
-          // className={cls([
-          //   styles.rcselect,
-          //   val ? styles.rcselect_has_value : '',
-          //   className,
-          // ])}
-          // dropdownClassName={cls([styles.menu, classNameDropdown])}
-          className={`rcselect ${val ? 'rcselect_has_value' : ''} ${className}`}
-          dropdownClassName={`rcselectMenu ${classNameDropdown}`}
-          inputIcon={renderInputIcon()}
-          onClick={setTrue}
-          animation="slide-up"
-          showArrow
-          onChange={onChange}
-          // open
-          {...rest}
-        >
-          {options.map(
-            ({ label, value, icon }: OptionSelect, index: number) => {
-              return (
-                <Option value={value} key={`${label}-${value}-${index}`}>
-                  {icon}
-                  {label}
-                </Option>
-              );
-            },
-          )}
-        </Select>
-      </div>
-    );
-  },
-);
+  return (
+    <div ref={divRef}>
+      <Select
+        // className={cls([
+        //   styles.rcselect,
+        //   val ? styles.rcselect_has_value : '',
+        //   className,
+        // ])}
+        // dropdownClassName={cls([styles.menu, classNameDropdown])}
+        className={`rcselect ${val ? 'rcselect_has_value' : ''} ${className}`}
+        dropdownClassName={`rcselectMenu ${classNameDropdown}`}
+        inputIcon={renderInputIcon()}
+        onClick={setTrue}
+        animation="slide-up"
+        showArrow
+        onChange={handleChange}
+        // open
+        {...rest}
+      >
+        {options.map(({ label, value, icon }: OptionSelect, index: number) => {
+          return (
+            <Option value={value} key={`${label}-${value}-${index}`}>
+              {icon}
+              {label}
+            </Option>
+          );
+        })}
+      </Select>
+    </div>
+  );
+});
 
 export default React.memo(RCSelect);

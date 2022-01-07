@@ -14,7 +14,7 @@ enum ModalName {
   ADD_PASS = 'Add Password',
   CHANGE_PASS = 'Change Password',
   CREATE_NEW_PASS = 'Creat new password',
-  FORGET_PASS = 'Forget Password',
+  FORGET_PASS = 'Forgot Password',
 }
 
 export default function Setting() {

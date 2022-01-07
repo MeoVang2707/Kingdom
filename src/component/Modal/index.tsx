@@ -2,6 +2,7 @@ import { useBoolean } from '@umijs/hooks';
 import Dialog from 'rc-dialog';
 import 'rc-dialog/assets/index.css';
 import React, { forwardRef, useImperativeHandle } from 'react';
+import Icon from '../Icon';
 import './index.scss';
 
 export interface ModalProps {
@@ -40,13 +41,13 @@ function Modal(props: ModalProps, ref: any) {
   }));
 
   const renderTitle = () => {
-    return <div className="text-center text-2xl text-accent-500">{title}</div>;
+    return <div className="text-center text-2xl text-accent-500 font-bold">{title}</div>;
   };
 
   const renderCloseIcon = (): React.ReactNode => {
     if (closeIcon) return closeIcon;
 
-    return <img src="/assets/images/close_square.svg" alt="" />;
+    return <Icon name="close_square" />;
   };
 
   return (
@@ -61,6 +62,8 @@ function Modal(props: ModalProps, ref: any) {
         backgroundColor: '#1d1d25',
         opacity: 0.7,
       }}
+      animation="zoom"
+      wrapClassName="center"
       {...rest}
     >
       {renderTitle()}

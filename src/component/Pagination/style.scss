@@ -19,9 +19,17 @@
       color: #868790;
       padding: 0;
     }
+
+    &:hover {
+      a {
+        color: white;
+      }
+    }
   }
+  // :not(.rc-pagination-item-active)
+
   .rc-pagination-item-active {
-    background: #e9992a;
+    @apply hover:bg-accent-600 bg-accent-500;
 
     a {
       color: white;
@@ -44,5 +52,9 @@
 
   .rc-pagination-next {
     margin-left: 8px;
+  }
+  .rc-pagination-jump-prev button:hover,
+  .rc-pagination-jump-next button:hover {
+    color: white;
   }
 }

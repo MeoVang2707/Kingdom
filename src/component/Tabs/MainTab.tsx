@@ -1,22 +1,23 @@
 import Tab from './OneTab';
-import { MainObject, MainObjectEnum, MainObjectLabel } from 'src/constant/Type';
+import { MainObject, MainObjectEnum } from 'src/constant/Type';
+import { MainObjectLabel } from 'src/constant';
+import Ship from 'src/component/Icon/Ship';
+import Character from 'src/component/Icon/Character';
+import Accessory from 'src/component/Icon/Accessory';
 
 export const tabs = [
   {
-    logo: 'character',
-    logoSelected: 'character_selected',
+    logo: Character,
     title: MainObjectLabel.CHARACTER,
     value: MainObjectEnum.CHARACTER,
   },
   {
-    logo: 'ship',
-    logoSelected: 'ShipSelected',
+    logo: Ship,
     title: MainObjectLabel.SHIP,
     value: MainObjectEnum.SHIP,
   },
   {
-    logo: 'accessory',
-    logoSelected: 'accessory_selected',
+    logo: Accessory,
     title: MainObjectLabel.ACCESSORY,
     value: MainObjectEnum.ACCESSORY,
   },
@@ -36,11 +37,12 @@ export default function View({ onClick, selected, className }: ViewProps) {
   return (
     <div className={className}>
       {tabs.map((item) => {
+        const Icon = item.logo;
         return (
           <Tab
             key={item.title}
             title={item.title}
-            logo={selected === item.value ? item.logoSelected : item.logo}
+            logo={<Icon />}
             onClick={handleClickItem(item.value)}
             className="mr-8"
             isSelected={selected === item.value}

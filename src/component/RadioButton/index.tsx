@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import Icon from '../Icon';
 
-interface CheckboxProps {
+interface RadioButtonProps {
   selected?: boolean;
   onClick?: (val: boolean) => void;
 }
 
-export default function Checkbox(props: CheckboxProps) {
+export default function RadioButton(props: RadioButtonProps) {
   const [val, setVal] = useState(props.selected);
 
   const handleClick = () => {
@@ -21,7 +21,7 @@ export default function Checkbox(props: CheckboxProps) {
   return (
     <Icon
       className="cursor-pointer"
-      name={val ? 'CheckboxChecked' : 'checkbox'}
+      name={val ? 'radio_button_checked' : 'radio_button'}
       onClick={handleClick}
     />
   );

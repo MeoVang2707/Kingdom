@@ -1,4 +1,5 @@
 import Button from 'src/component/Button';
+import Icon from '../Icon';
 import Modal, { ModalProps } from './';
 
 type TypeModal = 'confirm' | 'danger' | 'success';
@@ -12,9 +13,9 @@ interface ModalInfoProps extends ModalProps {
 }
 
 const mapIcon = {
-  confirm: '/assets/images/infor_big.svg',
-  danger: '/assets/images/danger_big.svg',
-  success: '/assets/images/success_big.svg',
+  confirm: 'infor_big',
+  danger: 'danger_big',
+  success: 'success_big',
 };
 
 export default function ModalInfo({
@@ -31,7 +32,7 @@ export default function ModalInfo({
     <>
       <Modal width={400} {...props}>
         <div className="flex flex-col items-center">
-          <img src={mapIcon[type]} alt="icon" />
+          <Icon name={mapIcon[type]} alt="icon" />
           <div className="mt-4 leading-8 text-white text-2xl font-semibold">
             {title}
           </div>

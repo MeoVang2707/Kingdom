@@ -13,7 +13,7 @@ const WalletInfo = () => {
   return (
     <div className="flex items-center">
       <div className="px-4 rounded-lg h-10 border border-accent-500 flex items-center mr-8">
-        <img alt="metamask" src="/assets/images/metamask.png" />
+        <Icon name="metamask" type="png" />
         <div className="pl-2 text-xs">
           <div className="font-semibold text-white">100 BNB</div>
           <div className="text-primary-100">0x9nq30....x2609nt</div>

@@ -18,7 +18,7 @@ export default function Metrics() {
   const onChangePage = () => {};
 
   return (
-    <div className="sm:px-4 md:px-26 xl:px-16 2xl:px-26 py-12">
+    <div className="sm:px-4 md:px-26 xl:px-16 2xl:px-26 py-12 max-w-screen-2xl mx-auto">
       <div className="flex flex-col items-center">
         <Tabs selected={selectedTab} onChangeTab={setSelecetedTab} />
 

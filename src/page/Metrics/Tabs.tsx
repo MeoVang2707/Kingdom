@@ -14,15 +14,13 @@ export default function Tabs({ selected, onChangeTab }: TabsProps) {
     onChangeTab(val);
   };
 
-  console.log('selected', selected);
-
   return (
     <div className="flex justify-center items-center border border-accent-500 p-1 rounded-lg">
       {tabs.map((item) => {
         return (
           <div
             key={item.title}
-            className={`px-4 py-1 cursor-pointer rounded-lg text-sm font-bold ${
+            className={`px-4 py-1 cursor-pointer rounded-lg text-sm font-bold hover:text-white ${
               selected === item.value
                 ? 'text-white bg-accent-500'
                 : 'text-primary-100'
